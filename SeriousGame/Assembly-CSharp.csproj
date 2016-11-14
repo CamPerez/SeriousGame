@@ -49,6 +49,8 @@
      <Compile Include="Assets\Scripts\AspectUtility.cs" />
      <Compile Include="Assets\Scripts\MenuController.cs" />
      <Compile Include="Assets\Scripts\Note.cs" />
+     <Compile Include="Assets\Scripts\NotificationCenter.cs" />
+     <Compile Include="Assets\Scripts\OnTouch.cs" />
      <Compile Include="Assets\Sprites\Characters\Goblin Archer\Scripts\Arrow.cs" />
      <Compile Include="Assets\Sprites\Characters\Goblin Archer\Scripts\MouseController.cs" />
  <Reference Include="UnityEngine.UI">
