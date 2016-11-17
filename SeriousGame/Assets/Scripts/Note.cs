@@ -11,6 +11,7 @@ public class Note : MonoBehaviour {
 	private RuntimePlatform platform = Application.platform;
 	private GameObject note;
 	private GameObject activator;
+	private GameObject gameManager;
 	private Activator activatorScript;
 
 	void Awake(){
@@ -19,6 +20,7 @@ public class Note : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		gameManager = GameObject.Find("GameManager");
 		rb.velocity = new Vector2 (0, -speed);
 	}
 
@@ -41,29 +43,35 @@ public class Note : MonoBehaviour {
 		Vector2 touchPos = new Vector2(wp.x, wp.y);
 		Collider2D hit = Physics2D.OverlapPoint(touchPos);
 
-		if(hit){
-			if (hit.transform.gameObject.tag == "Note") {
-				note = hit.transform.gameObject;
-			}
+		if(hit && hit.transform.gameObject.tag == "Note"){
+			note = hit.transform.gameObject;
 			if(inside == true && gameObject.name == note.name){
 				NotificationCenter.DefaultCenter ().PostNotification (this, "NotePressedCorrectly"); //La nota ha sido pulsada cuando pasa por un activador
 				activator.GetComponent <Activator>().SetColorChange ();
 				Destroy (note);
+				gameManager.GetComponent<GameManager> ().AddStreak ();
+				AddScore ();
 			}
 		}
 	}
 
 
+	void AddScore(){
+		PlayerPrefs.SetInt ("Score", PlayerPrefs.GetInt ("Score") + gameManager.GetComponent<GameManager>().GetScore ());
+	}
+		
 
-	//Se detecta un elemento tocando al activador
+	//Se detecta un elemento tocando la nota
 	void OnTriggerEnter2D(Collider2D col){
 		inside = true;
 		activator = col.gameObject;
 	}
-
-
+		
 	void OnTriggerExit2D(Collider2D col){
 		inside = false;
+		gameManager.GetComponent<GameManager> ().ResetStreak (); 
+		//Se detecta que ha pasado una nota por el activador y ha salido de ella (No ha sido destruida), 
+		//por lo que se reinicia los streaks seguidos del jugador
 	}
 		
 }

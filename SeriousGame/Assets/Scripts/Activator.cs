@@ -28,6 +28,7 @@ public class Activator : MonoBehaviour {
 
 	}
 
+
 	//Se detecta un elemento tocando al activador
 	void OnTriggerEnter2D(Collider2D col){
 		active = true;
