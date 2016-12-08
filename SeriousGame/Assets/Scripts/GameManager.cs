@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
+	//Añadimos multiplicadores si el usuario realiza determinados aciertos seguidos
 	public void AddStreak(){
 		streak++;
 		if (streak >= 24) {
@@ -40,7 +41,7 @@ public class GameManager : MonoBehaviour {
 		UpdateGUI ();
 	}
 
-
+	//Devolvemos la puntuación por cada nota tocada multiplicada por el valor de aciertos seguidos
 	public int GetScore(){
 		return 100 * multiplier; 
 	}

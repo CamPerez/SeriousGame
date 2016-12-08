@@ -13,6 +13,7 @@ public class Stat {
 	[SerializeField]
 	private float currentVal;
 
+
 	public float CurrentVal{
 
 		get{ 

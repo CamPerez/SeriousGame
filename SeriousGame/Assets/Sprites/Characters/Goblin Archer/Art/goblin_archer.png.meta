@@ -1,7 +1,31 @@
 fileFormatVersion: 2
 guid: 7ac6e9b292f137147b3df877cbc2523c
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: goblin_L_ear
+    21300002: goblin_R_ear
+    21300004: goblin_head
+    21300006: goblin_L_brow
+    21300008: goblin_R_brow
+    21300010: goblin_L_eye
+    21300012: goblin_R_eye
+    21300014: goblin_L_hand
+    21300016: goblin_body
+    21300018: goblin_L_lowerarm
+    21300020: goblin_R_upperarm
+    21300022: goblin_R_lowerarm
+    21300024: goblin_R_hand
+    21300026: goblin_L_upperarm
+    21300028: goblin_bow
+    21300030: goblin_L_necklace
+    21300032: goblin_R_necklace
+    21300034: goblin_bellybutton
+    21300036: goblin_arrow
+    21300038: goblin_tooth
+    21300040: goblin_L_leg
+    21300042: goblin_R_leg
+    21300044: goblin_L_foot
+    21300046: goblin_R_foot
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

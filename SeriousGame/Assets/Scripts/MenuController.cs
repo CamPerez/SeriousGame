@@ -14,8 +14,8 @@ public class MenuController : MonoBehaviour {
 	
 	}
 
+	//Cargamos la siguiente escena
 	public void LoadScene(string sceneName){
 		SceneManager.LoadScene (sceneName);
-
 	}
 }

@@ -3,8 +3,10 @@ using System.Collections;
 
 public class Note : MonoBehaviour {
 
+
+
 	Rigidbody2D rb;
-	public float speed = 2;
+	public float speed = 3;
 	private bool inside = false;
 
 
@@ -25,19 +27,21 @@ public class Note : MonoBehaviour {
 	}
 
 	void Update(){
-		if(platform == RuntimePlatform.Android || platform == RuntimePlatform.IPhonePlayer){
-			if(Input.touchCount > 0) {
-				if(Input.GetTouch(0).phase == TouchPhase.Began){
-					checkTouch(Input.GetTouch(0).position);
+
+			if (platform == RuntimePlatform.Android || platform == RuntimePlatform.IPhonePlayer) {
+				if (Input.touchCount > 0) {
+					if (Input.GetTouch (0).phase == TouchPhase.Began) {
+						checkTouch (Input.GetTouch (0).position);
+					}
+				}
+			} else if (platform == RuntimePlatform.WindowsEditor) {
+				if (Input.GetMouseButtonDown (0)) {
+					checkTouch (Input.mousePosition);
 				}
 			}
-		}else if(platform == RuntimePlatform.WindowsEditor){
-			if(Input.GetMouseButtonDown(0)) {
-				checkTouch(Input.mousePosition);
-			}
-		}
 	}
 
+	//Comprobamos dónde ha pulsado el usuario (con el ratón o con la pantalla táctil)
 	void checkTouch(Vector3 pos){
 		Vector3 wp = Camera.main.ScreenToWorldPoint(pos);
 		Vector2 touchPos = new Vector2(wp.x, wp.y);
@@ -55,9 +59,11 @@ public class Note : MonoBehaviour {
 		}
 	}
 
-
+	// Añadimos los puntos de la nota pulsada en el activador
 	void AddScore(){
-		PlayerPrefs.SetInt ("Score", PlayerPrefs.GetInt ("Score") + gameManager.GetComponent<GameManager>().GetScore ());
+		int winnedPoints = gameManager.GetComponent<GameManager> ().GetScore ();
+		PlayerPrefs.SetInt ("Score", PlayerPrefs.GetInt ("Score") + winnedPoints);
+		NotificationCenter.DefaultCenter ().PostNotification (this, "AddScoreToBar");
 	}
 		
 
@@ -70,7 +76,7 @@ public class Note : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D col){
 		inside = false;
 		gameManager.GetComponent<GameManager> ().ResetStreak (); 
-		//Se detecta que ha pasado una nota por el activador y ha salido de ella (No ha sido destruida), 
+		//Se detecta que ha pasado una nota por el activador y ha salido de ella (No ha sido pulsada por el usuario en el momento justo), 
 		//por lo que se reinicia los streaks seguidos del jugador
 	}
 		

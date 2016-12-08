@@ -9,6 +9,10 @@ public class Activator : MonoBehaviour {
 	private Color oldColor;
 
 	public KeyCode key;
+	public bool createMode;
+	public GameObject n;
+
+
 	bool active = false;
 
 	private GameObject note;
@@ -25,6 +29,14 @@ public class Activator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (createMode) {
+
+			if (Input.GetKeyDown (key)) {
+				Instantiate (n, transform.position, Quaternion.identity);
+			}
+
+		}
 
 	}
 
@@ -43,6 +55,7 @@ public class Activator : MonoBehaviour {
 		StartCoroutine (Pressed ());
 	}
 		
+	//Modificamos el color del activador cuando se destruye una nota sobre él
 	IEnumerator Pressed(){
 		sr.color = colorWhenPressed;
 		yield return new WaitForSeconds (0.05f);

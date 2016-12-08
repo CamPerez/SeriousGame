@@ -1,29 +1,30 @@
 fileFormatVersion: 2
 guid: 386964c43c636924495b23a8f34fdbdd
-timeCreated: 1478381666
+timeCreated: 1481193410
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: girl_0
-    21300002: girl_1
-    21300004: girl_2
-    21300006: girl_3
-    21300008: girl_4
-    21300010: girl_5
+    21300000: Tail
+    21300002: Head
+    21300004: HandA
+    21300006: Body
+    21300008: HandB
+    21300010: HandC
     21300012: girl_6
-    21300014: girl_7
-    21300016: girl_8
+    21300014: LegA
+    21300016: ArmA
     21300018: girl_9
     21300020: girl_10
-    21300022: girl_11
+    21300022: LegB
     21300024: girl_12
-    21300026: girl_13
-    21300028: girl_14
+    21300026: Shoe
+    21300028: ArmB
     21300030: girl_15
+    21300032: Neck
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -60,7 +61,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 180
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
@@ -79,210 +80,158 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: girl_0
+      name: Tail
       rect:
         serializedVersion: 2
         x: 102
         y: 530
         width: 251
         height: 491
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.60833716, y: 0.95344114}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: girl_1
+      name: Head
       rect:
         serializedVersion: 2
         x: 358
         y: 546
         width: 601
         height: 488
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.42930362, y: 0.05073635}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: girl_2
+      name: HandA
       rect:
         serializedVersion: 2
         x: 1142
         y: 711
         width: 102
         height: 81
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.15009382, y: 0.47901747}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: girl_3
+      name: Body
       rect:
         serializedVersion: 2
         x: 501
         y: 15
         width: 301
         height: 491
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5112925, y: 0.33731484}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: girl_4
+      name: HandB
       rect:
         serializedVersion: 2
         x: 1046
         y: 504
         width: 103
         height: 108
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.61550224, y: 0.7989926}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: girl_5
+      name: HandC
       rect:
         serializedVersion: 2
         x: 1217
         y: 497
         width: 103
         height: 108
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.64850503, y: 0.84620214}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: girl_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 285
-        width: 108
-        height: 206
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: girl_7
+      name: LegA
       rect:
         serializedVersion: 2
         x: 234
         y: 278
         width: 108
         height: 207
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5629459, y: 0.7298892}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: girl_8
+      name: ArmA
       rect:
         serializedVersion: 2
         x: 980
         y: 199
         width: 113
         height: 215
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.34959802, y: 0.81619304}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: girl_9
-      rect:
-        serializedVersion: 2
-        x: 1166
-        y: 205
-        width: 113
-        height: 214
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: girl_10
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 135
-        width: 81
-        height: 124
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: girl_11
+      name: LegB
       rect:
         serializedVersion: 2
         x: 238
         y: 132
         width: 81
         height: 124
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5209818, y: 0.7467072}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: girl_12
-      rect:
-        serializedVersion: 2
-        x: 10
-        y: 0
-        width: 152
-        height: 107
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: girl_13
+      name: Shoe
       rect:
         serializedVersion: 2
         x: 234
         y: 3
         width: 152
         height: 107
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.25401387, y: 0.7859039}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: girl_14
+      name: ArmB
       rect:
         serializedVersion: 2
         x: 951
         y: 62
         width: 130
         height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.16009192, y: 0.56984305}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: girl_15
+      name: Neck
       rect:
         serializedVersion: 2
-        x: 1203
-        y: 48
-        width: 130
-        height: 74
+        x: 8
+        y: 136
+        width: 80
+        height: 121
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

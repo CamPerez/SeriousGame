@@ -1,23 +1,23 @@
 fileFormatVersion: 2
 guid: 07bd55899d965044bbbb014d900a05df
-timeCreated: 1478382109
+timeCreated: 1481195009
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: boy_0
-    21300002: boy_1
-    21300004: boy_2
-    21300006: boy_3
-    21300008: boy_4
+    21300000: HandB
+    21300002: Head
+    21300004: HandA
+    21300006: HandC
+    21300008: ArmB
     21300010: boy_5
-    21300012: boy_6
+    21300012: ArmA
     21300014: boy_7
-    21300016: boy_8
-    21300018: boy_9
-    21300020: boy_10
-    21300022: boy_11
-    21300024: boy_12
-    21300026: boy_13
+    21300016: LegARight
+    21300018: LegALeft
+    21300020: Body
+    21300022: LegB
+    21300024: Neck
+    21300026: Shoe
     21300028: boy_14
   serializedVersion: 2
   mipmaps:
@@ -59,7 +59,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 180
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
@@ -78,197 +78,158 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boy_0
+      name: HandB
       rect:
         serializedVersion: 2
         x: 114
         y: 1145
         width: 103
         height: 107
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.6006403, y: 0.7712585}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: boy_1
+      name: Head
       rect:
         serializedVersion: 2
         x: 501
         y: 624
         width: 601
         height: 577
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.34821886, y: 0.08320594}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: boy_2
+      name: HandA
       rect:
         serializedVersion: 2
         x: 0
         y: 1032
         width: 102
         height: 81
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.25609496, y: 0.44881034}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: boy_3
+      name: HandC
       rect:
         serializedVersion: 2
         x: 226
         y: 1015
         width: 103
         height: 108
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.62076783, y: 0.78794354}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: boy_4
+      name: ArmB
       rect:
         serializedVersion: 2
         x: 2
         y: 872
         width: 131
         height: 74
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.18348204, y: 0.44396725}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: boy_5
-      rect:
-        serializedVersion: 2
-        x: 233
-        y: 879
-        width: 131
-        height: 74
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: boy_6
+      name: ArmA
       rect:
         serializedVersion: 2
         x: 34
         y: 581
         width: 110
         height: 228
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.36806926, y: 0.7818812}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: boy_7
-      rect:
-        serializedVersion: 2
-        x: 248
-        y: 571
-        width: 110
-        height: 228
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: boy_8
+      name: LegARight
       rect:
         serializedVersion: 2
         x: 4
         y: 326
         width: 149
         height: 193
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.45825788, y: 0.8222574}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: boy_9
+      name: LegALeft
       rect:
         serializedVersion: 2
         x: 237
         y: 323
         width: 148
         height: 194
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.514008, y: 0.8205966}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: boy_10
+      name: Body
       rect:
         serializedVersion: 2
-        x: 666
+        x: 664
         y: 28
         width: 301
         height: 542
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.49311215, y: 0.33934674}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: boy_11
+      name: LegB
       rect:
         serializedVersion: 2
         x: 25
         y: 139
         width: 81
         height: 162
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.49999973, y: 0.83273464}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: boy_12
+      name: Neck
       rect:
         serializedVersion: 2
         x: 287
         y: 142
         width: 81
         height: 162
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8327343}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: boy_13
+      name: Shoe
       rect:
         serializedVersion: 2
         x: 46
         y: 6
         width: 151
         height: 106
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: boy_14
-      rect:
-        serializedVersion: 2
-        x: 298
-        y: 0
-        width: 151
-        height: 106
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.23913479, y: 0.7933762}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
