@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 704538a113df8784c860837a178ce3c1
+timeCreated: 1483811969
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 254
+  forceTextureCase: 3
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - SF Toontime
+  fallbackFontReferences: []
+  customCharacters: "abcdefghijklmnopqrstuvwxyz0123456789,.:/()\xE1\xE0\xE9\xE8\xED\xF3\xFA"
+  fontRenderingMode: 2
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

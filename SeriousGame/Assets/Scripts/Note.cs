@@ -3,8 +3,6 @@ using System.Collections;
 
 public class Note : MonoBehaviour {
 
-
-
 	Rigidbody2D rb;
 	public float speed = 3;
 	private bool inside = false;
@@ -53,18 +51,12 @@ public class Note : MonoBehaviour {
 				NotificationCenter.DefaultCenter ().PostNotification (this, "NotePressedCorrectly"); //La nota ha sido pulsada cuando pasa por un activador
 				activator.GetComponent <Activator>().SetColorChange ();
 				Destroy (note);
-				gameManager.GetComponent<GameManager> ().AddStreak ();
-				AddScore ();
+				gameManager.GetComponent<GameManager> ().AddScore ();
 			}
 		}
 	}
 
-	// Añadimos los puntos de la nota pulsada en el activador
-	void AddScore(){
-		int winnedPoints = gameManager.GetComponent<GameManager> ().GetScore ();
-		PlayerPrefs.SetInt ("Score", PlayerPrefs.GetInt ("Score") + winnedPoints);
-		NotificationCenter.DefaultCenter ().PostNotification (this, "AddScoreToBar");
-	}
+
 		
 
 	//Se detecta un elemento tocando la nota
@@ -74,6 +66,7 @@ public class Note : MonoBehaviour {
 	}
 		
 	void OnTriggerExit2D(Collider2D col){
+		NotificationCenter.DefaultCenter ().PostNotification (this, "NoteFailed");
 		inside = false;
 		gameManager.GetComponent<GameManager> ().ResetStreak (); 
 		//Se detecta que ha pasado una nota por el activador y ha salido de ella (No ha sido pulsada por el usuario en el momento justo), 

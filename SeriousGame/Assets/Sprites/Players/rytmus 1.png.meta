@@ -1,0 +1,251 @@
+fileFormatVersion: 2
+guid: fc96475a179ef8e4ca36d8d38bb960f6
+timeCreated: 1481454438
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: RytmusHead_Blink
+    21300002: RytmusHead_Hit
+    21300004: RytmusHead_Happy
+    21300006: RytmusHead_Tail
+    21300008: RytmusHead_Normal
+    21300010: RytmusWingRight
+    21300012: RytmusWingLeft
+    21300014: RytmusArmB
+    21300016: Fire
+    21300018: RytmusArmA
+    21300020: RytmusBodyA
+    21300022: RytmusLeg
+    21300024: RytmusBodyB
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 160
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -3
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -3
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RytmusHead_Blink
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 1467
+        width: 480
+        height: 503
+      alignment: 9
+      pivot: {x: 0.3212962, y: 0.13826416}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RytmusHead_Hit
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 1529
+        width: 481
+        height: 504
+      alignment: 9
+      pivot: {x: 0.33247575, y: 0.1389819}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RytmusHead_Happy
+      rect:
+        serializedVersion: 2
+        x: 1429
+        y: 1531
+        width: 481
+        height: 504
+      alignment: 9
+      pivot: {x: 0.34328353, y: 0.13382442}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RytmusHead_Tail
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 1123
+        width: 332
+        height: 312
+      alignment: 9
+      pivot: {x: 0.8523188, y: 0.67495453}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RytmusHead_Normal
+      rect:
+        serializedVersion: 2
+        x: 1202
+        y: 815
+        width: 481
+        height: 504
+      alignment: 9
+      pivot: {x: 0.33247563, y: 0.12866719}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RytmusWingRight
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 569
+        width: 437
+        height: 463
+      alignment: 9
+      pivot: {x: 0.886628, y: 0.112627134}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RytmusWingLeft
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 587
+        width: 437
+        height: 463
+      alignment: 9
+      pivot: {x: 0.8925759, y: 0.112627134}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RytmusArmB
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 821
+        width: 175
+        height: 123
+      alignment: 9
+      pivot: {x: 0.17322685, y: 0.28867197}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fire
+      rect:
+        serializedVersion: 2
+        x: 1287
+        y: 519
+        width: 271
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RytmusArmA
+      rect:
+        serializedVersion: 2
+        x: 1809
+        y: 593
+        width: 158
+        height: 103
+      alignment: 9
+      pivot: {x: 0.25322792, y: 0.65141755}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RytmusBodyA
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 39
+        width: 785
+        height: 439
+      alignment: 9
+      pivot: {x: 0.72516483, y: 0.25723794}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RytmusLeg
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 85
+        width: 263
+        height: 367
+      alignment: 9
+      pivot: {x: 0.33198205, y: 0.8187188}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RytmusBodyB
+      rect:
+        serializedVersion: 2
+        x: 1505
+        y: 46
+        width: 481
+        height: 421
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

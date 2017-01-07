@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour {
 
 	private int multiplier = 1;
 	private int streak = 0;
+	private int correctNotes = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -17,11 +18,21 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
-		
+		Destroy (col.gameObject);
+	}
+
+	// Añadimos los puntos de la nota pulsada en el activador
+	public void AddScore(){
+		correctNotes++;
+		int winnedPoints = GetScore ();
+		PlayerPrefs.SetInt ("Score", PlayerPrefs.GetInt ("Score") + winnedPoints);
+		NotificationCenter.DefaultCenter ().PostNotification (this, "AddScoreToBar");
+		AddStreak ();
 	}
 
 	//Añadimos multiplicadores si el usuario realiza determinados aciertos seguidos
-	public void AddStreak(){
+	private void AddStreak(){
+		int auxMult = multiplier;
 		streak++;
 		if (streak >= 24) {
 			multiplier = 4;
@@ -31,6 +42,9 @@ public class GameManager : MonoBehaviour {
 			multiplier = 2;
 		} else {
 			multiplier = 1;
+		}
+		if (auxMult != multiplier) {
+			NotificationCenter.DefaultCenter ().PostNotification (this, "PointsIncresed"); 
 		}
 		UpdateGUI ();
 	}
@@ -46,8 +60,9 @@ public class GameManager : MonoBehaviour {
 		return 100 * multiplier; 
 	}
 
-	void UpdateGUI(){
-		PlayerPrefs.SetInt ("Streak", streak);
-		PlayerPrefs.SetInt ("Multiplier", multiplier);
+	private void UpdateGUI(){
+		//PlayerPrefs.SetInt ("Streak", streak);
+		//PlayerPrefs.SetInt ("Multiplier", multiplier);
+		PlayerPrefs.SetInt ("correctNotes", correctNotes);
 	}
 }

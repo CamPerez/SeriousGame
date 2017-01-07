@@ -1,0 +1,270 @@
+fileFormatVersion: 2
+guid: 1b1e657b021a050499880ccc07201725
+timeCreated: 1481389169
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: GirlHead_Blink
+    21300002: GirlHead_Happy
+    21300004: GirlHead_Normal
+    21300006: GirlHead_Hit
+    21300008: GirlHandA
+    21300010: GirlBody
+    21300012: GirlHandB
+    21300014: GirlHandC
+    21300016: GirlTail
+    21300018: GirlLegA
+    21300020: girl 1_10
+    21300022: GirlArmA
+    21300024: girl 1_12
+    21300026: GirlLegB
+    21300028: girl 1_14
+    21300030: GirlArmB
+    21300032: GirlShoe
+    21300034: girl 1_17
+    21300036: girl 1_18
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 190
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -3
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -3
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GirlHead_Blink
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 1356
+        width: 623
+        height: 516
+      alignment: 9
+      pivot: {x: 0.39733878, y: 0.082486175}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GirlHead_Happy
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 1362
+        width: 623
+        height: 516
+      alignment: 9
+      pivot: {x: 0.40814513, y: 0.082486175}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GirlHead_Normal
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 800
+        width: 627
+        height: 512
+      alignment: 9
+      pivot: {x: 0.3872562, y: 0.09237361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GirlHead_Hit
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 784
+        width: 623
+        height: 517
+      alignment: 9
+      pivot: {x: 0.39193544, y: 0.09631572}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GirlHandA
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 892
+        width: 106
+        height: 84
+      alignment: 9
+      pivot: {x: 0.27770305, y: 0.5000007}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GirlBody
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 162
+        width: 314
+        height: 513
+      alignment: 9
+      pivot: {x: 0.52144086, y: 0.2506514}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GirlHandB
+      rect:
+        serializedVersion: 2
+        x: 1640
+        y: 675
+        width: 107
+        height: 113
+      alignment: 9
+      pivot: {x: 0.65729845, y: 0.76810527}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GirlHandC
+      rect:
+        serializedVersion: 2
+        x: 1818
+        y: 666
+        width: 107
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GirlTail
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 118
+        width: 261
+        height: 512
+      alignment: 9
+      pivot: {x: 0.7837415, y: 0.92735064}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GirlLegA
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 444
+        width: 112
+        height: 215
+      alignment: 9
+      pivot: {x: 0.5601098, y: 0.8444492}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GirlArmA
+      rect:
+        serializedVersion: 2
+        x: 1571
+        y: 355
+        width: 118
+        height: 223
+      alignment: 9
+      pivot: {x: 0.35736394, y: 0.80190206}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GirlLegB
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 290
+        width: 85
+        height: 130
+      alignment: 9
+      pivot: {x: 0.5396032, y: 0.8107274}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GirlArmB
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 211
+        width: 136
+        height: 77
+      alignment: 9
+      pivot: {x: 0.22773384, y: 0.54371685}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GirlShoe
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 146
+        width: 159
+        height: 112
+      alignment: 9
+      pivot: {x: 0.22477482, y: 0.7404431}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

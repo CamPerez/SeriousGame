@@ -13,6 +13,6 @@ public class Score : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GetComponent<TextMesh> ().text = PlayerPrefs.GetInt (name) + "";
+		GetComponent<Text> ().text = PlayerPrefs.GetInt (name) + "";
 	}
 }

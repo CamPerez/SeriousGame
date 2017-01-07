@@ -1,0 +1,265 @@
+fileFormatVersion: 2
+guid: cc9bf1eadc140524b80690f5c8929a0e
+timeCreated: 1481458971
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BoyHead_Blink
+    21300002: BoyHead_Hit
+    21300004: BoyHandA
+    21300006: BoyHandB
+    21300008: BoyHead_Surprise
+    21300010: BoyArmB
+    21300012: BoyArmA
+    21300014: BoyHead_Normal
+    21300016: BoyLegARight
+    21300018: BoyLegALeft
+    21300020: BoyHandC
+    21300022: BoyBody
+    21300024: BoyLegB
+    21300026: BoyShoe
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 190
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -3
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -3
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BoyHead_Blink
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 1397
+        width: 642
+        height: 617
+      alignment: 9
+      pivot: {x: 0.35843047, y: 0.09627351}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BoyHead_Hit
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 1321
+        width: 642
+        height: 617
+      alignment: 9
+      pivot: {x: 0.34794375, y: 0.10172928}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BoyHandA
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 1206
+        width: 109
+        height: 86
+      alignment: 9
+      pivot: {x: 0.19117332, y: 0.42171744}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BoyHandB
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1187
+        width: 110
+        height: 116
+      alignment: 9
+      pivot: {x: 0.62240714, y: 0.7901906}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BoyHead_Surprise
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 773
+        width: 642
+        height: 617
+      alignment: 9
+      pivot: {x: 0.3374571, y: 0.09627351}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BoyArmB
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1031
+        width: 140
+        height: 80
+      alignment: 9
+      pivot: {x: 0.25955603, y: 0.50000155}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BoyArmA
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 720
+        width: 118
+        height: 244
+      alignment: 9
+      pivot: {x: 0.38589075, y: 0.76212275}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BoyHead_Normal
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 146
+        width: 642
+        height: 617
+      alignment: 9
+      pivot: {x: 0.36891702, y: 0.0853619}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BoyLegARight
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 447
+        width: 159
+        height: 207
+      alignment: 9
+      pivot: {x: 0.52117085, y: 0.87402314}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BoyLegALeft
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 448
+        width: 159
+        height: 207
+      alignment: 9
+      pivot: {x: 0.4999996, y: 0.85776126}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BoyHandC
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 431
+        width: 110
+        height: 115
+      alignment: 9
+      pivot: {x: 0.6530079, y: 0.792714}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BoyBody
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 130
+        width: 321
+        height: 578
+      alignment: 9
+      pivot: {x: 0.4685399, y: 0.27286828}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BoyLegB
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 248
+        width: 86
+        height: 173
+      alignment: 9
+      pivot: {x: 0.42171496, y: 0.9086147}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BoyShoe
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 106
+        width: 161
+        height: 114
+      alignment: 9
+      pivot: {x: 0.2491021, y: 0.8543388}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
