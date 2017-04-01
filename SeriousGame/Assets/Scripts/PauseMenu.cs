@@ -6,8 +6,6 @@ public class PauseMenu : MonoBehaviour {
 
 	[SerializeField]
 	private string mainMenu;
-	[SerializeField]
-	private string currentLevel;
 
 	[SerializeField]
 	private bool isPaused;
@@ -15,7 +13,6 @@ public class PauseMenu : MonoBehaviour {
 	[SerializeField]
 	private GameObject pauseMenuCanvas;
 
-	[SerializeField]
 	private AudioSource baseMusic;
 	[SerializeField]
 	private AudioSource hitMusic;
@@ -27,9 +24,14 @@ public class PauseMenu : MonoBehaviour {
 	private AudioSource baseMusicAux, hitMusicAux;
 	private float finalVolumeBase, finalVolumeHit;
 
+	private GameObject currentLevel;
+	private string nameCurrentLevel = "";
+
 
 	// Use this for initialization
 	void Start () {
+		currentLevel = GameObject.Find("LevelManager");
+		baseMusic = currentLevel.GetComponent <AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -58,7 +60,7 @@ public class PauseMenu : MonoBehaviour {
 	}
 
 	public void Replay(){
-		SceneManager.LoadScene (currentLevel);
+		SceneManager.LoadScene (nameCurrentLevel);
 		baseMusic.volume = finalVolumeBase;
 		hitMusic.volume = finalVolumeHit;
 	}

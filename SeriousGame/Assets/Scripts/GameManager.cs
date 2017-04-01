@@ -1,15 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 
-	private int multiplier = 1;
-	private int streak = 0;
-	private int correctNotes = 0;
+	public static GameManager gameManager;
+
+	private string filePath;
+
+	// Data in DataBase
+	public string playerName = "Camila";
+	public List<LevelData> levels = new List<LevelData>();
+	public LevelData lastLevelPlayed;
+
+	void Awake () {
+		filePath = Application.persistentDataPath + "/data.dat";
+		if(gameManager == null){
+			gameManager = this;
+			DontDestroyOnLoad (gameObject);
+		}else if(gameManager != this){
+			Destroy (gameObject);
+		}
+	}
 
 	// Use this for initialization
 	void Start () {
-	
+		LoadData ();
 	}
 	
 	// Update is called once per frame
@@ -17,52 +36,172 @@ public class GameManager : MonoBehaviour {
 	
 	}
 
-	void OnTriggerEnter2D(Collider2D col){
-		Destroy (col.gameObject);
+	void SaveData () {
+
+		BinaryFormatter bf = new BinaryFormatter ();
+		FileStream file = File.Create(filePath);
+
+		DataBase data = new DataBase (playerName, levels);
+
+		bf.Serialize (file, data);
+
+		file.Close ();
+
 	}
 
-	// Añadimos los puntos de la nota pulsada en el activador
-	public void AddScore(){
-		correctNotes++;
-		int winnedPoints = GetScore ();
-		PlayerPrefs.SetInt ("Score", PlayerPrefs.GetInt ("Score") + winnedPoints);
-		NotificationCenter.DefaultCenter ().PostNotification (this, "AddScoreToBar");
-		AddStreak ();
-	}
+	void LoadData () {
+		if (File.Exists (filePath)) {
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Open (filePath, FileMode.Open);
 
-	//Añadimos multiplicadores si el usuario realiza determinados aciertos seguidos
-	private void AddStreak(){
-		int auxMult = multiplier;
-		streak++;
-		if (streak >= 24) {
-			multiplier = 4;
-		} else if (streak >= 16) {
-			multiplier = 3;
-		} else if (streak >= 8) {
-			multiplier = 2;
+			DataBase data = (DataBase)bf.Deserialize (file);
+
+			playerName = data.PlayerName;
+			levels = data.Levels;
+
+			file.Close ();
 		} else {
-			multiplier = 1;
+			playerName = "Camila";
+			List<LevelData> levels = new List<LevelData>();
 		}
-		if (auxMult != multiplier) {
-			NotificationCenter.DefaultCenter ().PostNotification (this, "PointsIncresed"); 
+	}
+		
+}
+
+[Serializable]
+class DataBase{
+
+	private string playerName = "Camila";
+	private List<LevelData> levels = new List<LevelData>();
+
+	public DataBase(string playerName, List<LevelData> levels){
+		this.playerName = playerName;
+		this.levels = levels;
+	}
+
+	public string PlayerName {
+		get {
+			return this.playerName;
 		}
-		UpdateGUI ();
+		set{
+			this.playerName = value;
+		}
 	}
 
-	public void ResetStreak(){
-		streak = 0;
-		multiplier = 1;
-		UpdateGUI ();
+	public List<LevelData> Levels {
+		get {
+			return this.levels;
+		}
+		set{
+			this.levels = value;
+		}
+	}
+}
+
+
+public class LevelData{
+
+	private string levelName;
+	private string levelCode;
+	private string characterName;
+	private bool isCompleted;
+	private int totalScore;
+	private float levelScore;
+	private int correctNotes;
+	private int totalNotes;
+	private int stars;
+
+	public LevelData(string levelName, string levelCode, string characterName, bool isCompleted, int totalScore, int levelScore, int totalNotes, int correctNotes, int stars){
+		this.levelName = levelName;
+		this.levelCode = levelCode;
+		this.characterName = characterName;
+		this.isCompleted = isCompleted;
+		this.totalScore = totalScore;
+		this.levelScore = levelScore;
+		this.totalNotes = totalNotes;
+		this.correctNotes = correctNotes;
+		this.stars = stars;
 	}
 
-	//Devolvemos la puntuación por cada nota tocada multiplicada por el valor de aciertos seguidos
-	public int GetScore(){
-		return 100 * multiplier; 
+	public string LevelName {
+		get {
+			return this.levelName;
+		}
+		set{
+			this.levelName = value;
+		}
 	}
 
-	private void UpdateGUI(){
-		//PlayerPrefs.SetInt ("Streak", streak);
-		//PlayerPrefs.SetInt ("Multiplier", multiplier);
-		PlayerPrefs.SetInt ("correctNotes", correctNotes);
+	public string LevelCode {
+		get {
+			return this.levelCode;
+		}
+		set{
+			this.levelCode = value;
+		}
 	}
+
+	public string CharacterName {
+		get {
+			return this.characterName;
+		}
+		set{
+			this.characterName = value;
+		}
+	}
+
+	public bool IsCompleted {
+		get {
+			return this.isCompleted;
+		}
+		set{
+			this.isCompleted = value;
+		}
+	}
+
+	public float LevelScore {
+		get {
+			return this.levelScore;
+		}
+		set{
+			this.levelScore = value;
+		}
+	}
+
+	public int TotalScore {
+		get {
+			return this.totalScore;
+		}
+		set{
+			this.totalScore = value;
+		}
+	}
+
+	public int CorrectNotes {
+		get {
+			return this.correctNotes;
+		}
+		set{
+			this.correctNotes = value;
+		}
+	}
+
+	public int TotalNotes {
+		get {
+			return this.totalNotes;
+		}
+		set{
+			this.totalNotes = value;
+		}
+	}
+
+	public int Stars {
+		get {
+			return this.stars;
+		}
+		set{
+			this.stars = value;
+		}
+	}
+
 }

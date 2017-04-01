@@ -6,7 +6,7 @@ public class Player : MonoBehaviour {
 	[SerializeField]
 	private Stat points;
 
-	private GameObject gameManager;
+	private GameObject pointsManager;
 
 
 	void Awake(){
@@ -15,14 +15,12 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameManager = GameObject.Find("GameManager");
+		pointsManager = GameObject.Find("LevelManager");
+		NotificationCenter.DefaultCenter().AddObserver (this, "AddScoreToBar");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-		NotificationCenter.DefaultCenter().AddObserver (this, "AddScoreToBar");
-
 		/*if(Input.GetKeyDown (KeyCode.Q)){
 			points.CurrentVal -= 10;
 		}
@@ -34,7 +32,7 @@ public class Player : MonoBehaviour {
 
 	//Aumentamos los puntos conseguidos en la barra
 	void AddScoreToBar(Notification notification){
-		int winnedPoints = gameManager.GetComponent<GameManager> ().GetScore ();
+		int winnedPoints = pointsManager.GetComponent<PointsManager> ().GetScore ();
 		points.CurrentVal += winnedPoints;
 	}
 }

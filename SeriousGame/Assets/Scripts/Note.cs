@@ -7,11 +7,10 @@ public class Note : MonoBehaviour {
 	public float speed = 3;
 	private bool inside = false;
 
-
 	private RuntimePlatform platform = Application.platform;
 	private GameObject note;
 	private GameObject activator;
-	private GameObject gameManager;
+	private GameObject pointsManager;
 	private Activator activatorScript;
 
 	void Awake(){
@@ -20,7 +19,7 @@ public class Note : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameManager = GameObject.Find("GameManager");
+		pointsManager = GameObject.Find("LevelManager");
 		rb.velocity = new Vector2 (0, -speed);
 	}
 
@@ -39,7 +38,7 @@ public class Note : MonoBehaviour {
 			}
 	}
 
-	//Comprobamos dónde ha pulsado el usuario (con el ratón o con la pantalla táctil)
+	// Comprobamos dónde ha pulsado el usuario (con el ratón o con la pantalla táctil)
 	void checkTouch(Vector3 pos){
 		Vector3 wp = Camera.main.ScreenToWorldPoint(pos);
 		Vector2 touchPos = new Vector2(wp.x, wp.y);
@@ -48,18 +47,18 @@ public class Note : MonoBehaviour {
 		if(hit && hit.transform.gameObject.tag == "Note"){
 			note = hit.transform.gameObject;
 			if(inside == true && gameObject.name == note.name){
-				NotificationCenter.DefaultCenter ().PostNotification (this, "NotePressedCorrectly"); //La nota ha sido pulsada cuando pasa por un activador
+				NotificationCenter.DefaultCenter ().PostNotification (this, "NotePressedCorrectly"); // La nota ha sido pulsada cuando pasa por un activador
+				activator.GetComponent <Activator> ().playNoteSound ();
 				activator.GetComponent <Activator>().SetColorChange ();
 				Destroy (note);
-				gameManager.GetComponent<GameManager> ().AddScore ();
+				pointsManager.GetComponent<PointsManager> ().AddScore ();
 			}
 		}
 	}
 
 
-		
 
-	//Se detecta un elemento tocando la nota
+	// Se detecta un elemento tocando la nota
 	void OnTriggerEnter2D(Collider2D col){
 		inside = true;
 		activator = col.gameObject;
@@ -68,9 +67,9 @@ public class Note : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D col){
 		NotificationCenter.DefaultCenter ().PostNotification (this, "NoteFailed");
 		inside = false;
-		gameManager.GetComponent<GameManager> ().ResetStreak (); 
-		//Se detecta que ha pasado una nota por el activador y ha salido de ella (No ha sido pulsada por el usuario en el momento justo), 
-		//por lo que se reinicia los streaks seguidos del jugador
+		pointsManager.GetComponent<PointsManager> ().ResetStreak (); 
+		// Se detecta que ha pasado una nota por el activador y ha salido de ella (No ha sido pulsada por el usuario en el momento justo), 
+		// por lo que se reinicia los streaks seguidos del jugador
 	}
 		
 }

@@ -12,7 +12,7 @@ TrueTypeFontImporter:
   fontNames:
   - SF Toontime
   fallbackFontReferences: []
-  customCharacters: "abcdefghijklmnopqrstuvwxyz0123456789,.:/()\xE1\xE0\xE9\xE8\xED\xF3\xFA"
+  customCharacters: "abcdefghijklmnopqrstuvwxyz0123456789,.:/()\xE1\xE0\xE9\xE8\xED\xF3\xFA!\xA1"
   fontRenderingMode: 2
   ascentCalculationMode: 1
   userData: 

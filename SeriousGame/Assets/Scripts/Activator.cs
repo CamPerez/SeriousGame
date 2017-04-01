@@ -12,6 +12,10 @@ public class Activator : MonoBehaviour {
 	public bool createMode;
 	public GameObject n;
 
+	[SerializeField]
+	private int activatorNoteScale;
+	[SerializeField]
+	private AudioSource noteSound;
 
 	bool active = false;
 
@@ -24,7 +28,7 @@ public class Activator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		oldColor = sr.color;
-		NotificationCenter.DefaultCenter().AddObserver (this, "NotePressedCorrectly"); //Pendientes de mensaje de nota tocada dentro de activador
+		NotificationCenter.DefaultCenter().AddObserver (this, "NotePressedCorrectly"); // Pendientes de mensaje de nota tocada dentro de activador
 	}
 	
 	// Update is called once per frame
@@ -51,6 +55,10 @@ public class Activator : MonoBehaviour {
 		active = false;
 	}
 
+	public void playNoteSound(){
+		noteSound.Play ();
+	}
+
 	public void SetColorChange(){
 		StartCoroutine (Pressed ());
 	}
@@ -62,5 +70,8 @@ public class Activator : MonoBehaviour {
 		sr.color = oldColor;
 	}
 
-
+	public void setNoteSound(AudioSource sound){
+		noteSound = sound;
+	}
+		
 }
