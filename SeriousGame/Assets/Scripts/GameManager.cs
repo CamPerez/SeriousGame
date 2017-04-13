@@ -4,12 +4,17 @@ using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour {
 
 	public static GameManager gameManager;
 
 	private string filePath;
+
+	private bool countdownDone;
+
 
 	// Data in DataBase
 	public string playerName = "Camila";
@@ -33,7 +38,7 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
 	void SaveData () {
@@ -63,6 +68,15 @@ public class GameManager : MonoBehaviour {
 		} else {
 			playerName = "Camila";
 			List<LevelData> levels = new List<LevelData>();
+		}
+	}
+
+	public bool CountdownDone {
+		get {
+			return this.countdownDone;
+		}
+		set{
+			this.countdownDone = value;
 		}
 	}
 		
@@ -101,6 +115,7 @@ class DataBase{
 
 public class LevelData{
 
+	private int levelID;
 	private string levelName;
 	private string levelCode;
 	private string characterName;
@@ -111,7 +126,8 @@ public class LevelData{
 	private int totalNotes;
 	private int stars;
 
-	public LevelData(string levelName, string levelCode, string characterName, bool isCompleted, int totalScore, int levelScore, int totalNotes, int correctNotes, int stars){
+	public LevelData(int levelID, string levelName, string levelCode, string characterName, bool isCompleted, int totalScore, int levelScore, int totalNotes, int correctNotes, int stars){
+		this.levelID = levelID;
 		this.levelName = levelName;
 		this.levelCode = levelCode;
 		this.characterName = characterName;
@@ -121,6 +137,15 @@ public class LevelData{
 		this.totalNotes = totalNotes;
 		this.correctNotes = correctNotes;
 		this.stars = stars;
+	}
+
+	public int LevelID {
+		get {
+			return this.levelID;
+		}
+		set{
+			this.levelID = value;
+		}
 	}
 
 	public string LevelName {

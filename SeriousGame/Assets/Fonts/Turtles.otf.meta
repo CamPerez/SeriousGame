@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 7af1d458d0e721d40927cb6d84ff172c
+timeCreated: 1491159717
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 500
+  forceTextureCase: 3
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Turtles
+  fallbackFontReferences: []
+  customCharacters: "abcdefghijklmnopqrstuvwxyz0123456789,.:/()\xE1\xE0\xE9\xE8\xED\xF3\xFA!\xA1 "
+  fontRenderingMode: 2
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

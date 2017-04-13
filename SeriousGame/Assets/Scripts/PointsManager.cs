@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PointsManager : MonoBehaviour {
 
@@ -17,9 +18,9 @@ public class PointsManager : MonoBehaviour {
 	private int streak = 0;
 	private int correctNotes = 0;
 
-	private string bonusX2 = "¡bonus!\nX2";
-	private string bonusX3 = "¡bonus!\nX3";
-	private string bonusX4 = "¡bonus!\nX2";
+	private string bonusX2 = "¡bonus!\nx2";
+	private string bonusX3 = "¡bonus!\nx3";
+	private string bonusX4 = "¡bonus!\nx2";
 
 	[SerializeField]
 	private Text bonusText;
@@ -144,11 +145,7 @@ public class PointsManager : MonoBehaviour {
 	private void LevelFinished(Notification notification){
 		// Save level data in levelObject
 		SaveLevelByName(levelName);
-			Debug.Log (GameManager.gameManager.lastLevelPlayed.LevelName);
-			Debug.Log (GameManager.gameManager.lastLevelPlayed.CorrectNotes);
-			Debug.Log (GameManager.gameManager.lastLevelPlayed.Stars);
-			Debug.Log (GameManager.gameManager.lastLevelPlayed.LevelScore);
-		gameManager.GetComponent <SceneController> ().LoadScene ("FinishMenuScene");
+		SceneManager.LoadScene ("FinishMenuScene");
 	}
 
 	private void SaveLevelByName(string levelName){

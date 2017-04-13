@@ -4,9 +4,12 @@ using System.Collections;
 
 public class SceneController : MonoBehaviour {
 
+	private AudioSource mainMusic;
+	private Scene currentScene;
+
 	// Use this for initialization
 	void Start () {
-	
+		mainMusic = GameObject.Find("MainMenuMusic").GetComponent <AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -16,14 +19,15 @@ public class SceneController : MonoBehaviour {
 
 	//Cargamos la siguiente escena
 	public void LoadScene(string sceneName){
-		Debug.Log (sceneName);
 		SceneManager.LoadScene (sceneName);
-		Debug.Log (sceneName);
+		if (sceneName != "MainScene" && sceneName != "LevelMapScene" && sceneName != "CharacterSelector") {
+			mainMusic.Stop ();
+		} else {
+
+		}
 	}
 
 	public void LoadSameLevelScene(){
-		Debug.Log (GameManager.gameManager.lastLevelPlayed.LevelName);
 		SceneManager.LoadScene (GameManager.gameManager.lastLevelPlayed.LevelName);
-
 	}
 }

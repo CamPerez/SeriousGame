@@ -80,15 +80,62 @@ public class FinishedLevel : MonoBehaviour {
 
 	private void ActiveCharacter(){
 		GameObject listAux;
-		if(GameManager.gameManager.lastLevelPlayed.IsCompleted){
+		bool isCompleted = GameManager.gameManager.lastLevelPlayed.IsCompleted;
+		if(isCompleted){
 			listAux = characterList;
 		}else{
 			listAux = characterListLost;
 		}
 		foreach (Transform t in listAux.transform){
 			if(t.name == GameManager.gameManager.lastLevelPlayed.CharacterName){
+				Animator animator = t.GetComponent <Animator> ();
+				if(isCompleted){
+					animator.SetBool ("isJumping", true);
+				}else{
+					Debug.Log ("ha perdido");
+					animator.SetBool ("isHit", true);
+				}
 				t.gameObject.SetActive (true);
 			}
+		}
+	}
+
+	private void SelectCharacterAnimation(GameObject character){
+
+		Animator animator = character.GetComponent <Animator> ();
+		switch (character.name){
+		case "Rytmus":
+			animator.SetBool ("isFlyingJump", true);
+			break;
+		case "Girl":
+			animator.SetBool ("isJumping", true);
+			break;
+		case "Boy":
+			animator.SetBool ("isJumping", true);
+			break;
+		default:
+			print ("Incorrect intelligence level.");
+			break;
+		}
+
+	}
+
+	private void SelectCharacterAnimationLost(GameObject character){
+
+		Animator animator = character.GetComponent <Animator> ();
+		switch (character.name){
+		case "Rytmus":
+			animator.SetBool ("isHit", true);
+			break;
+		case "Girl":
+			animator.SetBool ("isJumping", true);
+			break;
+		case "Boy":
+			animator.SetBool ("isJumping", true);
+			break;
+		default:
+			print ("Incorrect intelligence level.");
+			break;
 		}
 
 	}

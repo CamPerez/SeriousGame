@@ -13,6 +13,8 @@ public class SkyLevel : MonoBehaviour {
 	private int failedNotes = 0;
 	private int correctNotes = 0;
 
+	private bool songInit = false;
+
 	[SerializeField]
 	private GameObject brownActivator;
 	[SerializeField]
@@ -31,6 +33,7 @@ public class SkyLevel : MonoBehaviour {
 	private GameObject purpleActivator;
 	*/
 
+	private AudioSource levelMusic;
 	[SerializeField]
 	private AudioSource noteSoundBrown;
 	[SerializeField]
@@ -52,8 +55,8 @@ public class SkyLevel : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		// Create level object LevelData(string levelName, string levelCode, string characterName, bool isCompleted, int totalScore, int levelScore, int totalNotes, int correctNotes, int stars)
-		LevelData skyLevel = new LevelData(this.GetType ().Name, "level1", characterName, false, totalScore, 0, totalNotes, 0, 0);
+		// Create level object LevelData(int, levelID, string levelName, string levelCode, string characterName, bool isCompleted, int totalScore, int levelScore, int totalNotes, int correctNotes, int stars)
+		LevelData skyLevel = new LevelData(1 , this.GetType ().Name, "level1", characterName, false, totalScore, 0, totalNotes, 0, 0);
 		GameManager.gameManager.levels.Add (skyLevel);
 
 		// Character control
@@ -62,6 +65,7 @@ public class SkyLevel : MonoBehaviour {
 		animator.SetBool("isFlying", true);
 
 		// Music and sounds
+		levelMusic = gameObject.GetComponent <AudioSource>();
 		brownActivator.GetComponent <Activator> ().setNoteSound (noteSoundBrown);
 		redActivator.GetComponent <Activator> ().setNoteSound (noteSoundRed);
 		orangeActivator.GetComponent <Activator> ().setNoteSound (noteSoundOrange);
@@ -80,8 +84,10 @@ public class SkyLevel : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-
+		if(!songInit && GameManager.gameManager.CountdownDone){
+			levelMusic.Play ();
+			songInit = true;
+		}
 	}
 
 	void NoteFailed(Notification notification){

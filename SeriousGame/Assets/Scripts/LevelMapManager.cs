@@ -6,7 +6,7 @@ public class LevelMapManager : MonoBehaviour {
 
 
 	[SerializeField]
-	private GameObject unlockedLevels;
+	private GameObject lockedLevels;
 	[SerializeField]
 	private GameObject starsLevels;
 
@@ -27,14 +27,13 @@ public class LevelMapManager : MonoBehaviour {
 	private void CheckLevelsStars(){
 
 		List<LevelData> levels = GameManager.gameManager.levels;
-		GameObject starsUnlockedLevel, unlockedLevel;
-		LevelData level;
+		GameObject starsUnlockedLevel, nextLockedLevel;
+		int nextLevelID;
 
-
-		for(int i = 1; i <= levels.Count; i++){
-			level = levels[i];
-			unlockedLevel = unlockedLevels.transform.FindChild (level.LevelCode).gameObject;
-			unlockedLevel.SetActive (false);
+		foreach(LevelData level in levels){
+			nextLevelID = level.LevelID + 1;
+			nextLockedLevel = lockedLevels.transform.FindChild ("level"+nextLevelID.ToString ()).gameObject;
+			nextLockedLevel.SetActive (false);
 			if(level.IsCompleted){
 				starsUnlockedLevel = starsLevels.transform.FindChild (level.LevelCode).gameObject;
 				PaintStars (level, starsUnlockedLevel);

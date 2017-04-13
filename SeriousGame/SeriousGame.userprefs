@@ -1,6 +1,6 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PauseMenu.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SceneController.cs">
     <Files>
       <File FileName="Assets\Scripts\Activator.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Note.cs" Line="1" Column="1" />
@@ -8,15 +8,17 @@
       <File FileName="Assets\Scripts\Score.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Stat.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Player.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SkyLevel.cs" Line="56" Column="67" />
+      <File FileName="Assets\Scripts\SkyLevel.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PauseMenu.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\BackgroundScroll.cs" Line="1" Column="1" />
       <File FileName="D:\Documentos\Unity\CorreCorre\Assets\Scripts\Scroll.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\CharacterSelection.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PointsManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\FinishedLevel.cs" Line="41" Column="1" />
-      <File FileName="Assets\Scripts\LevelMapManager.cs" Line="27" Column="34" />
-      <File FileName="Assets\Scripts\SceneController.cs" Line="26" Column="78" />
+      <File FileName="Assets\Scripts\FinishedLevel.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\LevelMapManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SceneController.cs" Line="12" Column="1" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ReportManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
