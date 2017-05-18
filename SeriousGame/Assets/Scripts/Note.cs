@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Note : MonoBehaviour {
 
-	Rigidbody2D rb;
-	public float speed = 3;
+	[SerializeField]
+	private float speed = 3;
 	private bool inside = false;
 
 	private RuntimePlatform platform = Application.platform;
@@ -13,29 +13,43 @@ public class Note : MonoBehaviour {
 	private GameObject pointsManager;
 	private Activator activatorScript;
 
-	void Awake(){
-		rb = GetComponent<Rigidbody2D> ();
-	}
+	[SerializeField]
+	private bool LeftToRight;
+	[SerializeField]
+	private bool RightToLeft;
+	[SerializeField]
+	private bool UpToDown;
+	[SerializeField]
+	private bool DownToUp;
+
 
 	// Use this for initialization
 	void Start () {
 		pointsManager = GameObject.Find("LevelManager");
-		rb.velocity = new Vector2 (0, -speed);
 	}
 
 	void Update(){
+		if(RightToLeft){
+			transform.Translate (-speed * Time.deltaTime, 0, 0);
+		}else if(LeftToRight){
+			transform.Translate (speed * Time.deltaTime, 0, 0);
+		}else if(UpToDown){
+			transform.Translate (0, -speed * Time.deltaTime, 0);
+		}else if(DownToUp){
+			transform.Translate (0, -speed * Time.deltaTime, 0);
+		}
 
-			if (platform == RuntimePlatform.Android || platform == RuntimePlatform.IPhonePlayer) {
-				if (Input.touchCount > 0) {
-					if (Input.GetTouch (0).phase == TouchPhase.Began) {
-						checkTouch (Input.GetTouch (0).position);
-					}
-				}
-			} else if (platform == RuntimePlatform.WindowsEditor) {
-				if (Input.GetMouseButtonDown (0)) {
-					checkTouch (Input.mousePosition);
+		if (platform == RuntimePlatform.Android || platform == RuntimePlatform.IPhonePlayer) {
+			if (Input.touchCount > 0) {
+				if (Input.GetTouch (0).phase == TouchPhase.Began) {
+					checkTouch (Input.GetTouch (0).position);
 				}
 			}
+		} else if (platform == RuntimePlatform.WindowsEditor) {
+			if (Input.GetMouseButtonDown (0)) {
+				checkTouch (Input.mousePosition);
+			}
+		}
 	}
 
 	// Comprobamos dónde ha pulsado el usuario (con el ratón o con la pantalla táctil)
@@ -65,11 +79,13 @@ public class Note : MonoBehaviour {
 	}
 		
 	void OnTriggerExit2D(Collider2D col){
-		NotificationCenter.DefaultCenter ().PostNotification (this, "NoteFailed");
-		inside = false;
-		pointsManager.GetComponent<PointsManager> ().ResetStreak (); 
-		// Se detecta que ha pasado una nota por el activador y ha salido de ella (No ha sido pulsada por el usuario en el momento justo), 
-		// por lo que se reinicia los streaks seguidos del jugador
+		if(col.tag=="Activator"){
+			NotificationCenter.DefaultCenter ().PostNotification (this, "NoteFailed");
+			inside = false;
+			pointsManager.GetComponent<PointsManager> ().ResetStreak (); 
+			// Se detecta que ha pasado una nota por el activador y ha salido de ella (No ha sido pulsada por el usuario en el momento justo), 
+			// por lo que se reinicia los streaks seguidos del jugador
+		}
 	}
 		
 }

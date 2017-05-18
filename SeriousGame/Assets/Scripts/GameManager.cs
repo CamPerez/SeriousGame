@@ -18,11 +18,13 @@ public class GameManager : MonoBehaviour {
 
 	// Data in DataBase
 	public string playerName = "Camila";
+	public bool isAGirl = true;
 	public List<LevelData> levels = new List<LevelData>();
-	public LevelData lastLevelPlayed;
+	public LevelData lastLevelPlayed = new LevelData();
 
 	void Awake () {
 		filePath = Application.persistentDataPath + "/data.dat";
+		Debug.Log (filePath);
 		if(gameManager == null){
 			gameManager = this;
 			DontDestroyOnLoad (gameObject);
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		LoadData ();
+		NotificationCenter.DefaultCenter().AddObserver (this, "SaveData");
 	}
 	
 	// Update is called once per frame
@@ -41,18 +44,19 @@ public class GameManager : MonoBehaviour {
 
 	}
 
-	void SaveData () {
-
+	void SaveData (Notification notification) {
+		
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream file = File.Create(filePath);
 
-		DataBase data = new DataBase (playerName, levels);
+		DataBase data = new DataBase (isAGirl, playerName, levels);
 
 		bf.Serialize (file, data);
 
 		file.Close ();
 
 	}
+
 
 	void LoadData () {
 		if (File.Exists (filePath)) {
@@ -62,12 +66,14 @@ public class GameManager : MonoBehaviour {
 			DataBase data = (DataBase)bf.Deserialize (file);
 
 			playerName = data.PlayerName;
+			isAGirl = data.IsAGirl;
 			levels = data.Levels;
 
 			file.Close ();
 		} else {
 			playerName = "Camila";
 			List<LevelData> levels = new List<LevelData>();
+			isAGirl = true;
 		}
 	}
 
@@ -85,10 +91,12 @@ public class GameManager : MonoBehaviour {
 [Serializable]
 class DataBase{
 
+	private bool isAGirl = true;
 	private string playerName = "Camila";
 	private List<LevelData> levels = new List<LevelData>();
 
-	public DataBase(string playerName, List<LevelData> levels){
+	public DataBase(bool isAGirl, string playerName, List<LevelData> levels){
+		this.isAGirl = isAGirl;
 		this.playerName = playerName;
 		this.levels = levels;
 	}
@@ -102,6 +110,16 @@ class DataBase{
 		}
 	}
 
+	public bool IsAGirl{
+		
+		get {
+			return this.isAGirl;
+		}
+		set{
+			this.isAGirl = value;
+		}
+	}
+
 	public List<LevelData> Levels {
 		get {
 			return this.levels;
@@ -112,7 +130,7 @@ class DataBase{
 	}
 }
 
-
+[Serializable]
 public class LevelData{
 
 	private int levelID;
@@ -125,6 +143,9 @@ public class LevelData{
 	private int correctNotes;
 	private int totalNotes;
 	private int stars;
+
+	public LevelData(){
+	}
 
 	public LevelData(int levelID, string levelName, string levelCode, string characterName, bool isCompleted, int totalScore, int levelScore, int totalNotes, int correctNotes, int stars){
 		this.levelID = levelID;

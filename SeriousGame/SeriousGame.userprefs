@@ -1,6 +1,6 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SceneController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\dialogWestLevel.cs">
     <Files>
       <File FileName="Assets\Scripts\Activator.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Note.cs" Line="1" Column="1" />
@@ -16,9 +16,17 @@
       <File FileName="Assets\Scripts\PointsManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\FinishedLevel.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\LevelMapManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SceneController.cs" Line="12" Column="1" />
+      <File FileName="Assets\Scripts\SceneController.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\GameManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\ReportManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\DialogController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\WestLevel.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\AspectUtility.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\NoteDestroyer.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CemeteryLevel.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\dialogCemeteryLevel.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\dialogSkyLevel.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\dialogWestLevel.cs" Line="233" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SkyLevel : MonoBehaviour {
 
-	private GameObject Rytmus;
+	private GameObject player;
 	private Animator animator;
 
 	private string characterName = "Rytmus";
@@ -32,25 +32,9 @@ public class SkyLevel : MonoBehaviour {
 	[SerializeField]
 	private GameObject purpleActivator;
 	*/
-
+	[SerializeField]
 	private AudioSource levelMusic;
-	[SerializeField]
-	private AudioSource noteSoundBrown;
-	[SerializeField]
-	private AudioSource noteSoundRed;
-	[SerializeField]
-	private AudioSource noteSoundOrange;
-	[SerializeField]
-	private AudioSource noteSoundYellow;
-	[SerializeField]
-	private AudioSource noteSoundGreen;
-	/*[SerializeField]
-	private AudioSource noteSoundTeal;
-	[SerializeField]
-	private AudioSource noteSoundBlue;
-	[SerializeField]
-	private AudioSource noteSoundPurple;
-	*/
+
 
 	// Use this for initialization
 	void Start () {
@@ -60,21 +44,9 @@ public class SkyLevel : MonoBehaviour {
 		GameManager.gameManager.levels.Add (skyLevel);
 
 		// Character control
-		Rytmus = GameObject.Find(characterName);
-		animator = Rytmus.GetComponent <Animator> ();
+		player = GameObject.Find(characterName);
+		animator = player.GetComponent <Animator> ();
 		animator.SetBool("isFlying", true);
-
-		// Music and sounds
-		levelMusic = gameObject.GetComponent <AudioSource>();
-		brownActivator.GetComponent <Activator> ().setNoteSound (noteSoundBrown);
-		redActivator.GetComponent <Activator> ().setNoteSound (noteSoundRed);
-		orangeActivator.GetComponent <Activator> ().setNoteSound (noteSoundOrange);
-		yellowActivator.GetComponent <Activator> ().setNoteSound (noteSoundYellow);
-		greenActivator.GetComponent <Activator> ().setNoteSound (noteSoundGreen);
-		/*tealActivator.GetComponent <Activator> ().setNoteSound (noteSoundTeal);
-		blueActivator.GetComponent <Activator> ().setNoteSound (noteSoundBlue);
-		purpleActivator.GetComponent <Activator> ().setNoteSound (noteSoundPurple);
-		*/
 
 		// Observe notifications
 		NotificationCenter.DefaultCenter().AddObserver (this, "NoteFailed");
@@ -87,6 +59,7 @@ public class SkyLevel : MonoBehaviour {
 		if(!songInit && GameManager.gameManager.CountdownDone){
 			levelMusic.Play ();
 			songInit = true;
+			GameManager.gameManager.CountdownDone = false;
 		}
 	}
 

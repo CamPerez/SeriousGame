@@ -41,6 +41,7 @@ public class FinishedLevel : MonoBehaviour {
 		if (GameManager.gameManager.lastLevelPlayed.IsCompleted) {
 			finishMenu.SetActive (true);
 			CheckStars ();
+			NotificationCenter.DefaultCenter ().PostNotification (this, "SaveData"); // Save Data inn data file
 		} else {
 			finishMenuLost.SetActive (true);
 		}
@@ -89,13 +90,12 @@ public class FinishedLevel : MonoBehaviour {
 		foreach (Transform t in listAux.transform){
 			if(t.name == GameManager.gameManager.lastLevelPlayed.CharacterName){
 				Animator animator = t.GetComponent <Animator> ();
+				t.gameObject.SetActive (true);
 				if(isCompleted){
 					animator.SetBool ("isJumping", true);
 				}else{
-					Debug.Log ("ha perdido");
 					animator.SetBool ("isHit", true);
 				}
-				t.gameObject.SetActive (true);
 			}
 		}
 	}
@@ -114,7 +114,7 @@ public class FinishedLevel : MonoBehaviour {
 			animator.SetBool ("isJumping", true);
 			break;
 		default:
-			print ("Incorrect intelligence level.");
+			print ("ERROR");
 			break;
 		}
 
@@ -125,6 +125,7 @@ public class FinishedLevel : MonoBehaviour {
 		Animator animator = character.GetComponent <Animator> ();
 		switch (character.name){
 		case "Rytmus":
+			animator.SetBool ("isFlying", false);
 			animator.SetBool ("isHit", true);
 			break;
 		case "Girl":
@@ -134,7 +135,7 @@ public class FinishedLevel : MonoBehaviour {
 			animator.SetBool ("isJumping", true);
 			break;
 		default:
-			print ("Incorrect intelligence level.");
+			print ("ERROR");
 			break;
 		}
 

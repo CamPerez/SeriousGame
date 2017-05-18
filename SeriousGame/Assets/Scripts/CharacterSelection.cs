@@ -1,12 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class CharacterSelection : MonoBehaviour {
 
 	private GameObject[] characterList;
 	private int index;
 
+	void Awake(){
+
+	}
+
 	void Start () {
+		
 		index = PlayerPrefs.GetInt ("MainCharacterSelected");
 
 		// List with all the possible main characters
@@ -45,6 +51,7 @@ public class CharacterSelection : MonoBehaviour {
 
 		// Toggle on the new model
 		characterList[index].SetActive (true);
+		SetMainCharacter ();
 	}
 
 	public void ToggleRight(){
@@ -59,9 +66,15 @@ public class CharacterSelection : MonoBehaviour {
 
 		// Toggle on the new model
 		characterList[index].SetActive (true);
+		SetMainCharacter ();
 	}
 
 	public void SetMainCharacter(){
 		PlayerPrefs.SetInt ("MainCharacterSelected", index);
+		if (index == 0) {
+			GameManager.gameManager.isAGirl = true;
+		} else {
+			GameManager.gameManager.isAGirl = false;
+		} 
 	}
 }

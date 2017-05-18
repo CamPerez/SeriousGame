@@ -20,14 +20,21 @@ public class SceneController : MonoBehaviour {
 	//Cargamos la siguiente escena
 	public void LoadScene(string sceneName){
 		SceneManager.LoadScene (sceneName);
-		if (sceneName != "MainScene" && sceneName != "LevelMapScene" && sceneName != "CharacterSelector") {
+		if (sceneName != "MainScene" && sceneName != "LevelMapScene" && sceneName != "CharacterSelector" && sceneName != "ReportScene" && sceneName != "InfoScene") {
 			mainMusic.Stop ();
-		} else {
-
 		}
 	}
 
 	public void LoadSameLevelScene(){
 		SceneManager.LoadScene (GameManager.gameManager.lastLevelPlayed.LevelName);
+	}
+
+	public void LoadWithCharacterSelector(){
+		Debug.Log (GameManager.gameManager.levels.Count);
+		if (GameManager.gameManager.levels.Count > 0) {
+			SceneManager.LoadScene ("dialogSkyScene");
+		} else {
+			SceneManager.LoadScene ("CharacterSelectorScene");
+		}
 	}
 }

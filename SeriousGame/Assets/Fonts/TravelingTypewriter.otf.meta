@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: d303139da6843f443bc128a6d25e7ba9
+timeCreated: 1492270053
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 256
+  forceTextureCase: 3
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Traveling _Typewriter
+  fallbackFontReferences: []
+  customCharacters: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMN\xD1OPQRSTUVWXYZ0123456789,.:/()\xE1\xE0\xE9\xE8\xED\xF3\xFA!\xA1
+    \xBF?\xC1\xC9\xCD\xD3\xDA"
+  fontRenderingMode: 2
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

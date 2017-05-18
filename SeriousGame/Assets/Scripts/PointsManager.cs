@@ -27,6 +27,7 @@ public class PointsManager : MonoBehaviour {
 
 	private Animator animator;
 
+	[SerializeField]
 	private AudioSource baseMusic;
 	private GameObject gameManager;
 	private float songLength;
@@ -42,7 +43,6 @@ public class PointsManager : MonoBehaviour {
 		bonusText.enabled = false;
 		animator = bonusText.GetComponent<Animator> ();
 		// Finish level menu
-		baseMusic = gameObject.GetComponent <AudioSource> ();
 		songLength = baseMusic.clip.length;
 		NotificationCenter.DefaultCenter().AddObserver (this, "LevelFinished");
 		StartCoroutine(FinishLevel());
@@ -51,10 +51,6 @@ public class PointsManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-	}
-
-	void OnTriggerEnter2D(Collider2D col){
-		Destroy (col.gameObject);
 	}
 
 
@@ -151,17 +147,34 @@ public class PointsManager : MonoBehaviour {
 	private void SaveLevelByName(string levelName){
 		for(int i = 0; i < GameManager.gameManager.levels.Count; i++){
 			if(GameManager.gameManager.levels[i].LevelName == levelName){
-				GameManager.gameManager.levels [i].IsCompleted = IsCompleted(correctNotes, GameManager.gameManager.levels [i].TotalNotes);
-				GameManager.gameManager.levels [i].CorrectNotes = correctNotes;
-				GameManager.gameManager.levels [i].LevelScore = points.CurrentVal;
 				if (GameManager.gameManager.levels [i].IsCompleted) {
-					GameManager.gameManager.levels [i].Stars = CalculateStars (points.CurrentVal, points.MaxVal);
+					SaveLevelAlreadyPlayed (GameManager.gameManager.levels [i]);
+				} else {
+					SaveLevelFirstTimePlayed (GameManager.gameManager.levels [i]);
 				}
-
-				GameManager.gameManager.lastLevelPlayed = GameManager.gameManager.levels [i];
+				GameManager.gameManager.lastLevelPlayed = GameManager.gameManager.levels[i];
 			}
 		}
 	}
+
+	private void SaveLevelAlreadyPlayed(LevelData level){
+		if (level.LevelScore < points.CurrentVal) {
+			level.LevelScore = points.CurrentVal;
+			level.CorrectNotes = correctNotes;
+			level.Stars = CalculateStars (points.CurrentVal, points.MaxVal);
+		} 
+	}
+
+	private void SaveLevelFirstTimePlayed(LevelData level){
+		level.IsCompleted = IsCompleted(correctNotes, level.TotalNotes);
+		level.CorrectNotes = correctNotes;
+		level.LevelScore = points.CurrentVal;
+		if (level.IsCompleted) {
+			level.Stars = CalculateStars (points.CurrentVal, points.MaxVal);
+		}
+
+	}
+
 
 	private bool IsCompleted(int correctNotes, int totalNotes){
 		float div = totalNotes / 3;
