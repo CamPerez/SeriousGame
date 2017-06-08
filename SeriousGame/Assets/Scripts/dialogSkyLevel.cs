@@ -42,7 +42,7 @@ public class dialogSkyLevel : MonoBehaviour {
 	private string text7 = "¿Cómo os puedo ayudar? Ni siquiera sé donde estoy, no sabría por dónde empezar...";
 	private string text8 = "¡Tú vienes de un lugar donde nada de esto pasa! ¡Rytmus te ayudará! Él conoce todos los rincones de Armonisia...";
 	private string text9 = "¿Quién es Rytmus?";
-	private string text10 = "¡Él es Rytmus! Con él podrás ir a cualquier parte... ¡Buena suerte, Andy!";
+	private string text10 = "¡Él es Rytmus! Con él podrás ir a cualquier parte... ¡Buena suerte, "+ GameManager.gameManager.playerName +"!";
 	private string text11 = "¡Espera! ¿Cómo sabes mi nombre?";
 	private string text12 = "...";
 	private string text13 = "Supongo que no tengo otra opción... ¡La aventura nos llama! ¿A dónde vamos primero, Rytmus?";
@@ -62,9 +62,11 @@ public class dialogSkyLevel : MonoBehaviour {
 		playerAnimator = player.GetComponent <Animator> ();
 		rytmusAnimator = rytmus.GetComponent <Animator> ();
 		textComponent = textObject.GetComponent <Text> ();
+		//"¡Ahí estás! ¿Eres tú, no? ¡Sí, tienes que ser tú! La persona elegida que ayudará a Armonisia a volver a su alegría de antes... ¡Estoy seguro, eres tú!"
 		elfAnimator.SetBool("isTalking", true);
+		playerAnimator.SetBool ("isStanding", true);
 		StartCoroutine(DialogController.dialogController.ShowText (text1, elfColor, textComponent));
-		StartCoroutine(ActiveButton (9));
+		StartCoroutine(ActiveButton (10));
 	}
 	
 	// Update is called once per frame
@@ -76,14 +78,17 @@ public class dialogSkyLevel : MonoBehaviour {
 
 		switch (counter)
 		{
+		//"¿Cómo? ¿Dónde estoy? ¿Por qué está todo tan oscuro y silencioso? Lo último que recuerdo es quedarme dormido leyendo un libro..."
 		case 1:
 			elfAnimator.SetBool ("isTalking", false);
 			playerAnimator.SetBool ("isTalking", true);
+			playerAnimator.SetBool ("isStanding", false);
 			StartCoroutine (DialogController.dialogController.ShowText (text2, playerColor, textComponent));
 			StartCoroutine(ActiveButton (8));
 			break;
 		case 2:
 			playerAnimator.SetBool ("isTalking", false);
+			playerAnimator.SetBool ("isStanding", true);
 			elfAnimator.SetBool("isTalking", true);
 			StartCoroutine(DialogController.dialogController.ShowText (text3, elfColor, textComponent));
 			StartCoroutine(ActiveButton (7));
@@ -95,11 +100,13 @@ public class dialogSkyLevel : MonoBehaviour {
 		case 4:
 			elfAnimator.SetBool ("isTalking", false);
 			playerAnimator.SetBool("isTalking", true);
+			playerAnimator.SetBool ("isStanding", false);
 			StartCoroutine(DialogController.dialogController.ShowText (text5, playerColor, textComponent));
 			StartCoroutine(ActiveButton (2));
 			break;
 		case 5:
 			playerAnimator.SetBool ("isTalking", false);
+			playerAnimator.SetBool ("isStanding", true);
 			elfAnimator.SetBool("isTalking", true);
 			StartCoroutine(DialogController.dialogController.ShowText (text6, elfColor, textComponent));
 			StartCoroutine(ActiveButton (11));
@@ -107,23 +114,27 @@ public class dialogSkyLevel : MonoBehaviour {
 		case 6:
 			elfAnimator.SetBool ("isTalking", false);
 			playerAnimator.SetBool("isTalking", true);
+			playerAnimator.SetBool ("isStanding", false);
 			StartCoroutine(DialogController.dialogController.ShowText (text7, playerColor, textComponent));
 			StartCoroutine(ActiveButton (6));
 			break;
 		case 7:
 			playerAnimator.SetBool ("isTalking", false);
+			playerAnimator.SetBool ("isStanding", true);
 			elfAnimator.SetBool("isTalking", true);
 			StartCoroutine(DialogController.dialogController.ShowText (text8, elfColor, textComponent));
-			StartCoroutine(ActiveButton (5));
+			StartCoroutine(ActiveButton (6));
 			break;
 		case 8:
 			elfAnimator.SetBool ("isTalking", false);
 			playerAnimator.SetBool("isTalking", true);
+			playerAnimator.SetBool ("isStanding", false);
 			StartCoroutine(DialogController.dialogController.ShowText (text9, playerColor, textComponent));
 			StartCoroutine(ActiveButton (1));
 			break;
 		case 9:
 			playerAnimator.SetBool ("isTalking", false);
+			playerAnimator.SetBool ("isStanding", true);
 			elfAnimator.SetBool ("isTalking", true);
 			StartCoroutine (DialogController.dialogController.ShowText (text10, elfColor, textComponent));
 			rytmus.SetActive (true);
@@ -134,16 +145,19 @@ public class dialogSkyLevel : MonoBehaviour {
 			elfAnimator.SetBool ("isTalking", false);
 			elfAnimator.SetBool ("isRunningMoveX", true);
 			playerAnimator.SetBool("isTalking", true);
+			playerAnimator.SetBool ("isStanding", false);
 			StartCoroutine(DialogController.dialogController.ShowText (text11, playerColor, textComponent));
 			StartCoroutine(ActiveButton (1));
 			break;
 		case 11:
 			playerAnimator.SetBool("isTalking", false);
+			playerAnimator.SetBool ("isStanding", true);
 			StartCoroutine(DialogController.dialogController.ShowText (text12, playerColor, textComponent));
 			StartCoroutine(ActiveButton (1));
 			break;
 		case 12:
 			playerAnimator.SetBool("isTalking", true);
+			playerAnimator.SetBool ("isStanding", false);
 			StartCoroutine(DialogController.dialogController.ShowText (text13, playerColor, textComponent));
 			StartCoroutine(ActiveButton (5));
 			break;

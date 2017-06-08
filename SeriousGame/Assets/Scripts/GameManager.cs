@@ -6,7 +6,6 @@ using System.IO;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
-
 public class GameManager : MonoBehaviour {
 
 	public static GameManager gameManager;
@@ -17,7 +16,9 @@ public class GameManager : MonoBehaviour {
 
 
 	// Data in DataBase
-	public string playerName = "Camila";
+	public string playerName = "Andy";
+	public bool musicOn = true;
+	public bool effectsOn = true;
 	public bool isAGirl = true;
 	public List<LevelData> levels = new List<LevelData>();
 	public LevelData lastLevelPlayed = new LevelData();
@@ -49,7 +50,7 @@ public class GameManager : MonoBehaviour {
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream file = File.Create(filePath);
 
-		DataBase data = new DataBase (isAGirl, playerName, levels);
+		DataBase data = new DataBase (isAGirl, playerName, levels, musicOn, effectsOn);
 
 		bf.Serialize (file, data);
 
@@ -68,10 +69,12 @@ public class GameManager : MonoBehaviour {
 			playerName = data.PlayerName;
 			isAGirl = data.IsAGirl;
 			levels = data.Levels;
+			musicOn = data.MusicOn;
+			effectsOn = data.EffectsOn;
 
 			file.Close ();
 		} else {
-			playerName = "Camila";
+			playerName = "Andy";
 			List<LevelData> levels = new List<LevelData>();
 			isAGirl = true;
 		}
@@ -92,13 +95,17 @@ public class GameManager : MonoBehaviour {
 class DataBase{
 
 	private bool isAGirl = true;
-	private string playerName = "Camila";
+	private bool musicOn = true;
+	private bool effectsOn = true;
+	private string playerName = "Andy";
 	private List<LevelData> levels = new List<LevelData>();
 
-	public DataBase(bool isAGirl, string playerName, List<LevelData> levels){
+	public DataBase(bool isAGirl, string playerName, List<LevelData> levels, bool musicOn, bool effectsOn){
 		this.isAGirl = isAGirl;
 		this.playerName = playerName;
 		this.levels = levels;
+		this.musicOn = musicOn;
+		this.effectsOn = effectsOn;
 	}
 
 	public string PlayerName {
@@ -117,6 +124,26 @@ class DataBase{
 		}
 		set{
 			this.isAGirl = value;
+		}
+	}
+
+	public bool MusicOn{
+
+		get {
+			return this.musicOn;
+		}
+		set{
+			this.musicOn = value;
+		}
+	}
+
+	public bool EffectsOn{
+
+		get {
+			return this.effectsOn;
+		}
+		set{
+			this.effectsOn = value;
 		}
 	}
 
@@ -140,24 +167,29 @@ public class LevelData{
 	private bool isCompleted;
 	private int totalScore;
 	private float levelScore;
-	private int correctNotes;
 	private int totalNotes;
+	private int correctNotes;
 	private int stars;
+	private string lastTimePlayed;
+	private int timesPlayed = 0;
+	private float volumeBase;
+	private float volumeHit;
 
 	public LevelData(){
 	}
 
-	public LevelData(int levelID, string levelName, string levelCode, string characterName, bool isCompleted, int totalScore, int levelScore, int totalNotes, int correctNotes, int stars){
+	public LevelData(int levelID, string levelName, string levelCode, string characterName, bool isCompleted, int totalScore, int levelScore, int totalNotes, int correctNotes, int stars, string lastTimePlayed){
 		this.levelID = levelID;
 		this.levelName = levelName;
 		this.levelCode = levelCode;
 		this.characterName = characterName;
 		this.isCompleted = isCompleted;
 		this.totalScore = totalScore;
-		this.levelScore = levelScore;
 		this.totalNotes = totalNotes;
-		this.correctNotes = correctNotes;
 		this.stars = stars;
+		this.lastTimePlayed = lastTimePlayed;
+		this.correctNotes = correctNotes;
+		this.levelScore = levelScore;
 	}
 
 	public int LevelID {
@@ -205,15 +237,6 @@ public class LevelData{
 		}
 	}
 
-	public float LevelScore {
-		get {
-			return this.levelScore;
-		}
-		set{
-			this.levelScore = value;
-		}
-	}
-
 	public int TotalScore {
 		get {
 			return this.totalScore;
@@ -223,12 +246,12 @@ public class LevelData{
 		}
 	}
 
-	public int CorrectNotes {
+	public float LevelScore {
 		get {
-			return this.correctNotes;
+			return this.levelScore;
 		}
 		set{
-			this.correctNotes = value;
+			this.levelScore = value;
 		}
 	}
 
@@ -241,12 +264,57 @@ public class LevelData{
 		}
 	}
 
+	public int CorrectNotes {
+		get {
+			return this.correctNotes;
+		}
+		set{
+			this.correctNotes = value;
+		}
+	}
+
 	public int Stars {
 		get {
 			return this.stars;
 		}
 		set{
 			this.stars = value;
+		}
+	}
+
+	public string LastTimePlayed {
+		get {
+			return this.lastTimePlayed;
+		}
+		set{
+			this.lastTimePlayed = value;
+		}
+	}
+
+	public int TimesPlayed {
+		get {
+			return this.timesPlayed;
+		}
+		set{
+			this.timesPlayed = value;
+		}
+	}
+
+	public float VolumeBase {
+		get {
+			return this.volumeBase;
+		}
+		set{
+			this.volumeBase = value;
+		}
+	}
+
+	public float VolumeHit {
+		get {
+			return this.volumeHit;
+		}
+		set{
+			this.volumeHit = value;
 		}
 	}
 

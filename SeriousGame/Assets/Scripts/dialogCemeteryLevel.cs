@@ -47,24 +47,24 @@ public class dialogCemeteryLevel : MonoBehaviour {
 	private string text12 = "¿Conoces a Rytmus?";
 	private string text13 = "¡Claro! Rytmus y yo nos conocemos desde que yo era un mini esqueleto y desde que él salió de su cascarón.";
 	private string text14 = "Vaya... Entonces supongo que me puedo fiar de ti.";
-	private string text15 = "¡Pues claro! Soy Huesitos,¿y tú?";
-	private string text16 = "Me llamo Andy y la verdad es que no tengo muy claro que hago aquí... Solo sé que un elfo me ha dicho que he de ayudar a recuperar el ritmo a Armonisia.";
-	private string text17 = "¿Tú eres Andy? ¡Por fin! Hace tiempo que esperamos que vinieras para ayudarnos. ¿Así que Rytmus te está llevando al castillo?"; 
+	private string text15 = "¡Pues claro! Soy Huesitos, ¿y tú?";
+	private string text16 = "Me llamo " + GameManager.gameManager.playerName +" y la verdad es que no tengo muy claro que hago aquí... Solo sé que un elfo me ha dicho que he de ayudar a recuperar el ritmo a Armonisia.";
+	private string text17 = "¿Tú eres " + GameManager.gameManager.playerName +" ? ¡Por fin! Hace tiempo que esperamos que vinieras para ayudarnos. ¿Así que Rytmus te está llevando al castillo?"; 
 	private string text18 = "No tengo muy claro dónde estamos yendo... ¿Cuál es ese castillo del que hablas?";
-	private string text19 = "¡El castillo del rey Compás, por supuesto! Ha desaparecido y el ritmo se ha descontrolado en estas tierras, ¡tienes que ir hasta allí para buscar pistas y encontrarlo!";
+	private string text19 = "¡El castillo del rey Compás, por supuesto! Ha desaparecido y el ritmo se ha ido, ¡tienes que ir hasta allí para buscar pistas y encontrarlo!";
 	private string text20 = "Grr... Grr...¡Gr...!";
 	private string text21 = "Oh, tienes razón Rytmus... ¡No podréis pasar si Colmillos sigue despierto!";
 	private string text22 = "¿Colmillos? ¿Quién es ese?";
-	private string text23 = "Un vampiro no muy amigable cuando le molestan... Y sin ritmo, el día y la noche cambian sin parar y esto solo hace que esté de pero humor...";
+	private string text23 = "Un vampiro no muy amigable cuando le molestan... Y sin ritmo, el día y la noche cambian sin parar y hace que esté de peor humor...";
 	private string text24 = "¡Seguro que si le explicamos porque tenemos que pasar nos dejará ir sin ningún problema!";
 	private string text25 = "Con el humor que tiene ahora mismo no creo que se pare a escucharos..."; 
 	private string text26 = "¡Grr!";
 	private string text27 = "¡Buena idea Rytmus, podemos ahuyentarlo con ajos, así seguro que se esconderá y tendréis tiempo de pasar!";
 	// If the level was already played, we can skip the animation scene
 	void Awake(){
-		if(GameManager.gameManager.levels.Count > 0){
+		if(GameManager.gameManager.levels.Count > 1){
 			btnSkip.SetActive (true);
-		}
+		} 
 	}
 
 	// Use this for initialization
@@ -171,7 +171,7 @@ public class dialogCemeteryLevel : MonoBehaviour {
 			break;
 		//"Gr... Gr..."
 		case 10:
-			rytmusAnimator.SetBool ("isFlyingHit", true);
+			rytmusAnimator.SetBool ("isJumping", true);
 			rytmusAnimator.SetBool ("isFlying", false);
 			StartCoroutine(DialogController.dialogController.ShowText (text11, rytmusColor, textComponent));
 			StartCoroutine(ActiveButton (1));
@@ -181,7 +181,7 @@ public class dialogCemeteryLevel : MonoBehaviour {
 			playerAnimator.SetBool("isTalking", true);
 			playerAnimator.SetBool("isStanding", true);
 			playerAnimator.SetBool("isHit", false);
-			rytmusAnimator.SetBool ("isFlyingHit", false);
+			rytmusAnimator.SetBool ("isJumping", false);
 			rytmusAnimator.SetBool ("isFlying", true);
 			StartCoroutine(DialogController.dialogController.ShowText (text12, playerColor, textComponent));
 			StartCoroutine(ActiveButton (1));
@@ -192,13 +192,13 @@ public class dialogCemeteryLevel : MonoBehaviour {
 			rytmusAnimator.SetBool ("isStanding", true);
 			rytmusAnimator.SetBool ("isFlying", false);
 			StartCoroutine(DialogController.dialogController.ShowText (text13, skeletonColor, textComponent));
-			StartCoroutine(ActiveButton (7));
+			StartCoroutine(ActiveButton (6));
 			break;
 		//"Vaya... Entonces supongo que me puedo fiar de ti.
 		case 13:
 			playerAnimator.SetBool("isTalking", true);
 			StartCoroutine(DialogController.dialogController.ShowText (text14, playerColor, textComponent));
-			StartCoroutine(ActiveButton (4));
+			StartCoroutine(ActiveButton (3));
 			break;
 		//"¡Pues claro! Soy Huesitos,¿y tú?"
 		case 14:
@@ -206,7 +206,7 @@ public class dialogCemeteryLevel : MonoBehaviour {
 			skeletonAnimator.SetBool ("isStanding", false);
 			skeletonAnimator.SetBool ("isAttacking", true);
 			StartCoroutine(DialogController.dialogController.ShowText (text15, skeletonColor, textComponent));
-			StartCoroutine(ActiveButton (3));
+			StartCoroutine(ActiveButton (2));
 			break;
 		//"Me llamo Andy y la verdad es que no tengo muy claro que hago aquí... Solo sé que un elfo me ha dicho que he de ayudar a recuperar el ritmo a Armonisia."
 		case 15:
@@ -220,7 +220,7 @@ public class dialogCemeteryLevel : MonoBehaviour {
 		case 16:
 			playerAnimator.SetBool("isTalking", false);
 			StartCoroutine(DialogController.dialogController.ShowText (text17, skeletonColor, textComponent));
-			StartCoroutine(ActiveButton (6));
+			StartCoroutine(ActiveButton (7));
 			break;
 		//"No tengo muy claro dónde estamos yendo... ¿Cuál es ese castillo del que hablas?"
 		case 17:
@@ -228,13 +228,13 @@ public class dialogCemeteryLevel : MonoBehaviour {
 			StartCoroutine(DialogController.dialogController.ShowText (text18, playerColor, textComponent));
 			StartCoroutine(ActiveButton (5));
 			break;
-		//"¡El castillo del rey Compás, por supuesto! Ha desaparecido y el ritmo se ha descontrolado en estas tierras, ¡tienes que ir hasta allí para buscar pistas y encontrarlo!"
+		//"¡El castillo del rey Compás, por supuesto! Ha desaparecido y el ritmo se ha ido, ¡tienes que ir hasta allí para buscar pistas y encontrarlo!"
 		case 18:
 			playerAnimator.SetBool("isTalking", false);
 			skeletonAnimator.SetBool ("isStanding", false);
 			skeletonAnimator.SetBool ("isAttacking", true);
 			StartCoroutine(DialogController.dialogController.ShowText (text19, skeletonColor, textComponent));
-			StartCoroutine(ActiveButton (8));
+			StartCoroutine(ActiveButton (9));
 			break;
 		//"Grr... Grr...¡Gr...!"
 		case 19:
@@ -243,7 +243,7 @@ public class dialogCemeteryLevel : MonoBehaviour {
 			skeletonAnimator.SetBool ("isStanding", true);
 			skeletonAnimator.SetBool ("isAttacking", false);
 			StartCoroutine(DialogController.dialogController.ShowText (text20, rytmusColor, textComponent));
-			StartCoroutine(ActiveButton (8));
+			StartCoroutine(ActiveButton (2));
 			break;
 		//"Oh, tienes razón Rytmus... ¡No podréis pasar si Colmillos sigue despierto!"
 		case 20:
@@ -251,7 +251,7 @@ public class dialogCemeteryLevel : MonoBehaviour {
 			rytmusAnimator.SetBool ("isStanding", false);
 			rytmusAnimator.SetBool ("isHit", true);
 			StartCoroutine(DialogController.dialogController.ShowText (text21, skeletonColor, textComponent));
-			StartCoroutine(ActiveButton (8));
+			StartCoroutine(ActiveButton (6));
 			break;
 		//"¿Colmillos? ¿Quién es ese?"
 		case 21:
@@ -260,7 +260,7 @@ public class dialogCemeteryLevel : MonoBehaviour {
 			rytmusAnimator.SetBool ("isStanding", true);
 			rytmusAnimator.SetBool ("isHit", false);
 			StartCoroutine(DialogController.dialogController.ShowText (text22, playerColor, textComponent));
-			StartCoroutine(ActiveButton (8));
+			StartCoroutine(ActiveButton (2));
 			break;
 		//"Un vampiro no muy amigable cuando le molestan... Y sin ritmo, el día y la noche cambian sin parar y esto solo hace que esté de pero humor..."
 		case 22:
@@ -303,7 +303,7 @@ public class dialogCemeteryLevel : MonoBehaviour {
 			skeletonAnimator.SetBool ("isStanding", false);
 			skeletonAnimator.SetBool ("isAttacking", true);
 			StartCoroutine(DialogController.dialogController.ShowText (text27, skeletonColor, textComponent));
-			StartCoroutine(ActiveButton (9));
+			StartCoroutine(ActiveButton (6));
 			break;
 		case 27:
 			SceneManager.LoadScene ("CemeteryLevel");

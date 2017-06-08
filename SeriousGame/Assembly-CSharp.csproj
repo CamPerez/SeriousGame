@@ -50,11 +50,14 @@
      <Compile Include="Assets\Scripts\BackgroundScroll.cs" />
      <Compile Include="Assets\Scripts\CemeteryLevel.cs" />
      <Compile Include="Assets\Scripts\CharacterSelection.cs" />
+     <Compile Include="Assets\Scripts\ChristmasLevel.cs" />
      <Compile Include="Assets\Scripts\Countdown.cs" />
      <Compile Include="Assets\Scripts\DialogController.cs" />
      <Compile Include="Assets\Scripts\FinishedLevel.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\LevelMapManager.cs" />
+     <Compile Include="Assets\Scripts\MainSettings.cs" />
+     <Compile Include="Assets\Scripts\NameSelector.cs" />
      <Compile Include="Assets\Scripts\Note.cs" />
      <Compile Include="Assets\Scripts\NoteDestroyer.cs" />
      <Compile Include="Assets\Scripts\NotificationCenter.cs" />
@@ -69,6 +72,7 @@
      <Compile Include="Assets\Scripts\Stat.cs" />
      <Compile Include="Assets\Scripts\WestLevel.cs" />
      <Compile Include="Assets\Scripts\dialogCemeteryLevel.cs" />
+     <Compile Include="Assets\Scripts\dialogChristmasLevel.cs" />
      <Compile Include="Assets\Scripts\dialogSkyLevel.cs" />
      <Compile Include="Assets\Scripts\dialogWestLevel.cs" />
  <Reference Include="UnityEngine.UI">

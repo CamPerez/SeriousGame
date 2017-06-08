@@ -12,7 +12,7 @@ TrueTypeFontImporter:
   fontNames:
   - Traveling _Typewriter
   fallbackFontReferences: []
-  customCharacters: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMN\xD1OPQRSTUVWXYZ0123456789,.:/()\xE1\xE0\xE9\xE8\xED\xF3\xFA!\xA1
+  customCharacters: "abcdefghijklmn\xF1opqrstuvwxyzABCDEFGHIJKLMN\xD1OPQRSTUVWXYZ0123456789,.:/-\xBA()\xE1\xE0\xE9\xE8\xED\xF3\xFA!\xA1
     \xBF?\xC1\xC9\xCD\xD3\xDA"
   fontRenderingMode: 2
   ascentCalculationMode: 1

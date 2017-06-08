@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class SkyLevel : MonoBehaviour {
 
@@ -38,11 +39,13 @@ public class SkyLevel : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		DateTime dt = DateTime.Now;
+		string date = dt.ToString("dd/MM/yyyy");
 		// Create level object LevelData(int, levelID, string levelName, string levelCode, string characterName, bool isCompleted, int totalScore, int levelScore, int totalNotes, int correctNotes, int stars)
-		LevelData skyLevel = new LevelData(1 , this.GetType ().Name, "level1", characterName, false, totalScore, 0, totalNotes, 0, 0);
-		GameManager.gameManager.levels.Add (skyLevel);
-
+		LevelData skyLevel = new LevelData(1 , this.GetType ().Name, "level1", characterName, false, totalScore, 0, totalNotes, 0, 0, date);
+		if (GameManager.gameManager.levels.Count == 0) {
+			GameManager.gameManager.levels.Add (skyLevel);
+		}
 		// Character control
 		player = GameObject.Find(characterName);
 		animator = player.GetComponent <Animator> ();

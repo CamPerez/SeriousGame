@@ -77,4 +77,5 @@ public class CharacterSelection : MonoBehaviour {
 			GameManager.gameManager.isAGirl = false;
 		} 
 	}
+		
 }

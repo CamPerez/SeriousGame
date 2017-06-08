@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour {
 	[SerializeField]
 	private GameObject pauseMenuCanvas;
 
+	[SerializeField]
 	private AudioSource baseMusic;
 	[SerializeField]
 	private AudioSource hitMusic;
@@ -20,6 +21,8 @@ public class PauseMenu : MonoBehaviour {
 	private AudioSource menuMusic;
 	[SerializeField]
 	private AudioSource menuMusicB;
+	[SerializeField]
+	private GameObject notesSound;
 
 	private AudioSource baseMusicAux, hitMusicAux;
 	private float finalVolumeBase, finalVolumeHit;
@@ -27,11 +30,14 @@ public class PauseMenu : MonoBehaviour {
 	private GameObject currentLevel;
 	private string nameCurrentLevel = "";
 
+	private bool musicStarted = false;
+
 
 	// Use this for initialization
 	void Start () {
 		currentLevel = GameObject.Find("LevelManager");
-		baseMusic = currentLevel.GetComponent <AudioSource> ();
+		finalVolumeBase = baseMusic.volume;
+		finalVolumeHit = hitMusic.volume;
 	}
 	
 	// Update is called once per frame
@@ -48,10 +54,13 @@ public class PauseMenu : MonoBehaviour {
 		Time.timeScale = 1f;
 		baseMusic.volume = finalVolumeBase;
 		hitMusic.volume = finalVolumeHit;
-		baseMusic.Play();
-		hitMusic.Play ();
+		ChangeVolumeNotes ();
+		if(musicStarted){
+			baseMusic.Play();
+		}
 		menuMusic.Stop ();
 		menuMusicB.Stop ();
+		pauseMenuCanvas.SetActive (false);
 	}
 
 	public void Quit(){
@@ -63,13 +72,19 @@ public class PauseMenu : MonoBehaviour {
 		SceneManager.LoadScene (nameCurrentLevel);
 		baseMusic.volume = finalVolumeBase;
 		hitMusic.volume = finalVolumeHit;
+		pauseMenuCanvas.SetActive (false);
 	}
 
 	public void Settings(){
+		//Game paused
 		isPaused = true;
+		pauseMenuCanvas.SetActive (true);
 		Time.timeScale = 0f;
+		//Level music base paused
+		if(baseMusic.isPlaying){
+			musicStarted = true;
+		}
 		baseMusic.Pause();
-		hitMusic.Pause ();
 		menuMusic.volume = baseMusic.volume;
 		menuMusic.Play ();
 		menuMusicB.Play ();
@@ -83,5 +98,12 @@ public class PauseMenu : MonoBehaviour {
 	public void VolumeControlHit(float volumeControl){
 		menuMusicB.volume = volumeControl;
 		finalVolumeHit = volumeControl;
+	}
+
+	private void ChangeVolumeNotes(){
+		foreach(Transform note in notesSound.transform){
+			note.gameObject.GetComponent <AudioSource>().volume = finalVolumeHit;
+		}
+	
 	}
 }

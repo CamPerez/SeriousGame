@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class WestLevel : MonoBehaviour {
 
@@ -42,11 +43,15 @@ public class WestLevel : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		DateTime dt = DateTime.Now;
+		string date = dt.ToString("dd/MM/yyyy");
 		GetPlayerOptions();
 		characterName = player.name;
 		// Create level object LevelData(int, levelID, string levelName, string levelCode, string characterName, bool isCompleted, int totalScore, int levelScore, int totalNotes, int correctNotes, int stars)
-		LevelData skyLevel = new LevelData(3 , this.GetType ().Name, "level3", characterName, false, totalScore, 0, totalNotes, 0, 0);
-		GameManager.gameManager.levels.Add (skyLevel);
+		LevelData westLevel = new LevelData(3 , this.GetType ().Name, "level3", characterName, false, totalScore, 0, totalNotes, 0, 0, date);
+		if (GameManager.gameManager.levels.Count == 2) {
+			GameManager.gameManager.levels.Add (westLevel);
+		}
 
 		// Character control
 

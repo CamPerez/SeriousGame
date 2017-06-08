@@ -29,6 +29,9 @@ public class PointsManager : MonoBehaviour {
 
 	[SerializeField]
 	private AudioSource baseMusic;
+	[SerializeField]
+	private AudioSource hitMusic;
+
 	private GameObject gameManager;
 	private float songLength;
 
@@ -40,11 +43,13 @@ public class PointsManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// Bonus text
+		PlayerPrefs.SetInt ("correctNotes", 0);
 		bonusText.enabled = false;
 		animator = bonusText.GetComponent<Animator> ();
 		// Finish level menu
 		songLength = baseMusic.clip.length;
 		NotificationCenter.DefaultCenter().AddObserver (this, "LevelFinished");
+		NotificationCenter.DefaultCenter().AddObserver (this, "AddScore");
 		StartCoroutine(FinishLevel());
 	}
 	
@@ -64,7 +69,6 @@ public class PointsManager : MonoBehaviour {
 		correctNotes++;
 		int winnedPoints = GetScore ();
 		PlayerPrefs.SetInt ("Score", PlayerPrefs.GetInt ("Score") + winnedPoints);
-		//NotificationCenter.DefaultCenter ().PostNotification (this, "AddScoreToBar");
 		points.CurrentVal += winnedPoints;
 
 		AddStreak ();
@@ -97,7 +101,6 @@ public class PointsManager : MonoBehaviour {
 	public void ResetStreak(){
 		streak = 0;
 		multiplier = 1;
-		UpdateGUI ();
 	}
 
 	//Devolvemos la puntuación por cada nota tocada multiplicada por el valor de aciertos seguidos
@@ -152,6 +155,9 @@ public class PointsManager : MonoBehaviour {
 				} else {
 					SaveLevelFirstTimePlayed (GameManager.gameManager.levels [i]);
 				}
+				GameManager.gameManager.levels [i].VolumeBase = baseMusic.volume;
+				GameManager.gameManager.levels [i].VolumeHit = hitMusic.volume;
+				GameManager.gameManager.levels [i].TimesPlayed = GameManager.gameManager.levels [i].TimesPlayed + 1;
 				GameManager.gameManager.lastLevelPlayed = GameManager.gameManager.levels[i];
 			}
 		}

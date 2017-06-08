@@ -12,7 +12,8 @@ TrueTypeFontImporter:
   fontNames:
   - Turtles
   fallbackFontReferences: []
-  customCharacters: "abcdefghijklmnopqrstuvwxyz0123456789,.:/()\xE1\xE0\xE9\xE8\xED\xF3\xFA!\xA1 "
+  customCharacters: "abcdefghijklmn\xF1opqrstuvwxyz0123456789,.:/-\xBA()\xE1\xE0\xE9\xE8\xED\xF3\xFA!\xA1
+    \xBF?ABCDEFGHIJKLMN\xD1OPQRSTUVWXYZ"
   fontRenderingMode: 2
   ascentCalculationMode: 1
   userData: 

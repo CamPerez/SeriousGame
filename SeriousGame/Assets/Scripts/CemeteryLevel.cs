@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class CemeteryLevel : MonoBehaviour {
 
@@ -43,10 +44,13 @@ public class CemeteryLevel : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		DateTime dt = DateTime.Now;
+		string date = dt.ToString("dd/MM/yyyy");
 		// Create level object LevelData(levelID, string levelName, string levelCode, string characterName, bool isCompleted, int totalScore, int levelScore, int totalNotes, int correctNotes, int stars)
-		LevelData skyLevel = new LevelData(2 , this.GetType ().Name, "level2", characterName, false, totalScore, 0, totalNotes, 0, 0);
-		GameManager.gameManager.levels.Add (skyLevel);
+		LevelData cemeteryLevel = new LevelData(2 , this.GetType ().Name, "level2", "Skeleton", false, totalScore, 0, totalNotes, 0, 0, date);
+		if (GameManager.gameManager.levels.Count == 1) {
+			GameManager.gameManager.levels.Add (cemeteryLevel);
+		}
 
 		// Character control
 		player = GameObject.Find(characterName);
@@ -83,7 +87,6 @@ public class CemeteryLevel : MonoBehaviour {
 	}
 		
 	void NoteFailed(Notification notification){
-		Debug.Log ("NOTE FAILED");
 		failedNotes++;
 		if(failedNotes > 3){
 			animator.SetBool("isAppearing",true);
@@ -94,7 +97,6 @@ public class CemeteryLevel : MonoBehaviour {
 	}
 
 	void NotePressedCorrectly(Notification notification){
-		Debug.Log ("NOTE CORRECTLY");
 		correctNotes++;
 		if (correctNotes > 5) {
 			animator.SetBool ("isAttacking", true);
@@ -105,7 +107,6 @@ public class CemeteryLevel : MonoBehaviour {
 	}
 
 	void PointsIncresed(Notification notification){
-		Debug.Log ("NOTE INCRESED");
 		animator.SetBool("isRunning",true);
 		animator.SetBool("isAppearing",false);
 		animator.SetBool("isAttacking",false);

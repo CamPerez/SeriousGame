@@ -37,7 +37,7 @@ public class ReportManager : MonoBehaviour {
 
 	private void CheckLevelInfo(LevelData level, GameObject infoAux){
 
-		GameObject starsLevelAux, score, notes, notesTotal, music, sound;
+		GameObject starsLevelAux, score, notes, notesTotal, music, sound, date, timesPlayed;
 		starsLevelAux = infoAux.transform.FindChild ("stars").gameObject;
 		PaintStars (level, starsLevelAux);
 		score = infoAux.transform.FindChild ("score").gameObject;
@@ -47,8 +47,13 @@ public class ReportManager : MonoBehaviour {
 		notesTotal = infoAux.transform.FindChild ("notesTotal").gameObject;
 		notesTotal.GetComponent <Text>().text = level.TotalNotes.ToString ();
 		music = infoAux.transform.FindChild ("music").gameObject;
+		music.GetComponent <Text>().text = level.VolumeBase.ToString ();
 		sound = infoAux.transform.FindChild ("sound").gameObject;
-
+		sound.GetComponent <Text>().text = level.VolumeHit.ToString ();
+		date = infoAux.transform.FindChild ("date").gameObject;
+		date.GetComponent <Text>().text = level.LastTimePlayed;
+		timesPlayed = infoAux.transform.FindChild ("times").gameObject;
+		timesPlayed.GetComponent <Text>().text = level.TimesPlayed.ToString ();
 	}
 
 	private void PaintStars(LevelData level, GameObject starsLevelAux){
